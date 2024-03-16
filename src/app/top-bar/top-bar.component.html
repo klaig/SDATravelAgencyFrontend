@@ -6,7 +6,7 @@
             <a>+372 555 55555</a>
         </div>
         <div class="header-info-center">
-            <h1>SDA Travel Agency</h1>
+            <img src="assets/images/logo3.png" alt="SDA Travel Agency">
         </div>
         <div class="header-info-right">
             <i class="fab fa-facebook"></i>
@@ -18,10 +18,19 @@
 
     <!-- Navbar content -->
     <nav class="navbar">
-        <a>Tours</a>
-        <a>Destinations</a>
-        <a href="/about">About</a>
-        <a href="/contact">Contact</a>
+        <ul>
+            <li><a href="#home">Tours</a></li>
+            <li class="dropdown">
+                <button (click)="toggleDropdown()">Destinations</button>
+                <div *ngIf="dropdownOpen" class="dropdown-content">
+                    <a href="#link1">Cities</a>
+                    <a href="#link2">Countries</a>
+                    <a href="#link3">Continents</a>
+                </div>
+            </li>
+            <li><a href="#services">About</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
         <!-- Add other navigation links as needed -->
     </nav>
 </div>
