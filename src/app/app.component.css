@@ -1,0 +1,4 @@
+body {
+    background-color: #c93838; /* Fallback color */
+    background-image: url('/assets/images/background.jpg');
+}
