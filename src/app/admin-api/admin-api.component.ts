@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { ApiService } from '../services/api.service';
 
 @Component({
   selector: 'app-admin-api',
@@ -7,4 +8,17 @@ import { Component } from '@angular/core';
 })
 export class AdminApiComponent {
 
+
+  constructor(private apiService: ApiService) {}
+
+  findAllPurchaseData() {
+    this.apiService.findAllPurchaseData().subscribe({
+      next: (data) => {
+        console.log(data);
+      },
+      error: (error) => {
+        console.error(error);
+      }
+    });
+  }
 }

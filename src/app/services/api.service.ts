@@ -16,6 +16,10 @@ export class ApiService {
   getAllTours() {
     return this.http.get('http://localhost:8080/api/v1/tours');
   }
+
+  findAllPurchaseData() {
+    return this.http.get('http://localhost:8080/api/admin/tour/all');
+  }
   
 
 }
