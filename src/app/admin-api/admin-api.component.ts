@@ -12,10 +12,24 @@ export class AdminApiComponent {
 
   constructor(private apiService: ApiService) {}
 
+
+  // Function to handle button clicks and update the JSON output
+  updateJsonOutput(data: any): void {
+    // Convert data to JSON format with indentation
+    const json = JSON.stringify(data, null, 2);
+    // Find the JSON output element by its ID and update its text content
+    const jsonOutputElement = document.getElementById('jsonOutputAdmin');
+    if (jsonOutputElement) {
+      jsonOutputElement.textContent = json;
+    }
+  }
+
   findAllPurchaseData() {
     this.apiService.findAllPurchaseData().subscribe({
       next: (data) => {
         console.log(data);
+        // Update the JSON output
+        this.updateJsonOutput(data);
       },
       error: (error) => {
         console.error(error);
@@ -57,6 +71,7 @@ export class AdminApiComponent {
       next: (data) => {
         // Do something with the data
         console.log(data);
+        this.updateJsonOutput(data);
       },
       error: (error) => {
         console.error(error);
@@ -98,7 +113,7 @@ export class AdminApiComponent {
       next: (data) => {
         // Do something with the data
         console.log(data);
-        console.log("Tour updated");
+        this.updateJsonOutput(data);
       },
       error: (error) => {
         console.error(error);
@@ -113,7 +128,7 @@ export class AdminApiComponent {
       next: (data) => {
         // Do something with the data
         console.log(data);
-        console.log("Tour deleted");
+        this.updateJsonOutput(data);
       },
       error: (error) => {
         console.error(error);
@@ -129,6 +144,7 @@ export class AdminApiComponent {
     this.apiService.findAllByIsPurchased(isPurchased).subscribe({
       next: (data) => {
         console.log(data);
+        this.updateJsonOutput(data);
       },
       error: (error) => {
         console.error(error);

@@ -8,6 +8,17 @@ div {
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 10em;
     width: 100%;
+}
+.component {
+    min-width: 1000px;
+}
+.divider {
+    height: 2px;
+    background-color: #2195f375;
+    margin: 20px 0;
+}
+
+.test-space {
+    height: 250px;
 }

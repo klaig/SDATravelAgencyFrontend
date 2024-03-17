@@ -15,10 +15,8 @@ export class ApiService {
   /* getSomeData() {
     return this.http.get('https://api.example.com/data');
   } */
-  getAllTours() {
-    return this.http.get('http://localhost:8080/api/v1/tours');
-  }
 
+  // Admin api calls start
   // get request
   findAllPurchaseData() {
     return this.http.get('http://localhost:8080/api/admin/tour/all');
@@ -44,4 +42,52 @@ export class ApiService {
     return this.http.get('http://localhost:8080/api/admin/tour/bought?isPurchased=' + isPurchased);
   }
 
+  // Admin api calls end
+  // Tour api calls start
+  // returns all tours
+  getAllTours() {
+    return this.http.get('http://localhost:8080/api/v1/tours');
+  }
+
+  // returns tour by id
+  findById(tourId: number) {
+    return this.http.get(`http://localhost:8080/api/v1/tour?tourId=` + tourId);
+  }
+
+  // returns tours by destination
+  findAllByDestination(destination: string) {
+    return this.http.get('http://localhost:8080/api/v1/tours/city?city=' + destination);
+  }
+
+  // returns tours by departure date
+  findAllByDepartureDateBetween(minDate: string, maxDate: string) {
+    return this.http.get('http://localhost:8080/api/v1/tours/dates?minDate=' + minDate + '&maxDate=' + maxDate);
+  }
+
+  // returns tours by length
+  findAllByLength(days: number) {
+    return this.http.get('http://localhost:8080/api/v1/tours/length?days=' + days);
+  }
+
+  // returns tours by price
+  findAllByAdultPriceBetween(minPrice: number, maxPrice: number) {
+    return this.http.get('http://localhost:8080/api/v1/tours/price?min=' + minPrice + '&max=' + maxPrice);
+  }
+
+  // returns tours by promotion
+  findAllByPromoted(isPromoted: boolean) {
+    return this.http.get('http://localhost:8080/api/v1/tours/promoted?promoted=' + isPromoted);
+  }
+
+  // returns tours bought by specific userId
+  findAllBoughtTours(userId: number) {
+    return this.http.get('http://localhost:8080/api/v1/mytours?userId=' + userId);
+  }
+
+  // Tour api calls end
+  // PurchaseData api calls start
+
+
+
+  // PurchaseData api calls end
 }
