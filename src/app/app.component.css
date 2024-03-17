@@ -1,4 +1,13 @@
-body {
+main {
     background-color: #c93838; /* Fallback color */
-    background-image: url('/assets/images/background.jpg');
+    background-image: url(/assets/images/background.jpg);
+}
+
+div {
+   /* stretch */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 10em;
+    width: 100%;
 }
