@@ -1,0 +1,17 @@
+.spacer {
+    min-width: 10em; /* Add a minimum width to the spacer */
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch; /* This ensures that the children (fields and buttons) stretch to fill the width */
+}
+
+.buttons button {
+    margin-right: 1em; /* Add margin to the right of the buttons */
+}
+
+.buttons button:last-child {
+    margin-right: 0; /* Remove the margin from the last button */
+}
