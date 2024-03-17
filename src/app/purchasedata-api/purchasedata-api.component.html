@@ -1,0 +1,58 @@
+<h1 id="header">PURCHASEDATA API</h1>
+<div class="flex-container">
+    <!-- JSON Output container -->
+    <div class="json-output-container">
+        <pre id="jsonOutputPurchasedata"></pre>
+    </div>
+    <div class = "form-container" id="formContainer">
+        <table class="fields">
+            <tr>
+                <td class="spacer"></td>
+                <td><label class="purchaseData.id-label" for="purchasedata.id">purchasedata.id</label></td>
+                <td><input class="purchaseData.id-input" type="number" id="purchaseData.id" value="1"/></td>
+                <td class="spacer"></td>
+            </tr>
+            <tr>
+                <td class="spacer"></td>
+                <td><label class="numberOfAdults-label" for="numberOfAdults">numberOfAdults</label></td>
+                <td><input class="numberOfAdults-input" type="number" id="numberOfAdults" value="4"/></td>
+                <td class="spacer"></td>
+            </tr>
+            <tr>
+                <td class="spacer"></td>
+                <td><label class="numberOfChildren-label" for="numberOfChildren">numberOfChildren</label></td>
+                <td><input class="numberOfChildren-input" type="number" id="numberOfChildren" value="6"/></td>
+                <td class="spacer"></td>
+            </tr>
+            <tr>
+                <td class="spacer"></td>
+                <td><label class="tourId-label" for="tourId">tourId</label></td>
+                <td><input class="tourId-input" type="number" id="tourId" value="1"/></td>
+                <td class="spacer"></td>
+            </tr>
+            <tr>
+                <td class="spacer"></td>
+                <td><label class="userId-label" for="userId">userId</label></td>
+                <td><input class="userId-input" type="number" id="userId" value="1"/></td>
+                <td class="spacer"></td>
+            </tr>
+            <tr>
+                <td class="spacer"></td>
+                <td><label class="isPurchased-label" for="isPurchased">isPurchased</label></td>
+                <td><input class="isPurchased-input" type="checkbox" id="isPurchased" /></td>
+                <td class="spacer"></td>
+            </tr>
+        </table>
+    </div>
+</div>
+
+<!-- Row for buttons -->
+<tr class="button-row">
+    <div class="button-container">
+            <!---  1 asemele meetodi nimi  -->
+                <button (click)="1">createPurchasedData</button>
+                <button (click)="1">calculateTotal</button>
+                <button (click)="1">finalizePurchase</button>
+        
+    </div>
+</tr>

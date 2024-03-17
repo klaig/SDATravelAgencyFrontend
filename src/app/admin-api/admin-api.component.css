@@ -1,17 +1,60 @@
-.spacer {
-    min-width: 10em; /* Add a minimum width to the spacer */
-}
-
-.container {
+.buttons {
     display: flex;
-    flex-direction: column;
-    align-items: stretch; /* This ensures that the children (fields and buttons) stretch to fill the width */
+    justify-content: space-between;
 }
 
-.buttons button {
+.flex-container {
+    display: flex;
+    justify-content: center;
+    padding: 20px;
+    ;
+}
+
+.json-output-container {
+    flex: 1;
+    background-color: #f5f5f5;
+    border: 1px solid #ddd;
+    margin-left: 20px; /* Set the distance from the left side */
+    margin-right: 20px;
+}
+
+.form-container {
+    flex: 1;
+}
+
+#jsonOutput {
+    white-space: pre-wrap; /* Ensures formatting of whitespace is kept */
+    word-break: break-all; /* To prevent horizontal scrolling */
+    padding: 5px; /* Padding inside the container */
+    overflow-y: auto; /* Allows vertical scrolling if content is too long */
+    max-height: 480px;
+}
+
+#header {
+    display: flex;
+    padding: 20px;
+    justify-content: center;
+    color: #2196f3;
+}
+
+.button-row {
+    display: flex;
+    width: 100%;
+    margin-bottom: 1em;
+}
+
+.button-container button {
     margin-right: 1em; /* Add margin to the right of the buttons */
+
 }
 
-.buttons button:last-child {
-    margin-right: 0; /* Remove the margin from the last button */
+.button-container {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+}
+
+
+.fields {
+    width: 100%;
 }
