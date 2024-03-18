@@ -19,7 +19,7 @@ export const _filter = (opt: string[], value: string): string[] => {
   styleUrl: './destination-auto-complete.component.css'
 })
 export class DestinationAutoCompleteComponent implements OnInit{
-  @Input() destination: string = "Rome";
+  @Input() destination: string = '';
   @Output() destinationChange = new EventEmitter<string>();
 
   cityForm = this._formBuilder.group({

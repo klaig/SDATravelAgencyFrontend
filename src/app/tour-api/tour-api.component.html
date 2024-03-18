@@ -20,49 +20,21 @@
                 </td>
             </tr>
             <tr>   
-    <td>
-        <app-destination-auto-complete [(destination)]="destination"></app-destination-auto-complete>
-        <!-- <form [formGroup]="cityForm">        
-            <mat-form-field>
-                <mat-label>Destination</mat-label>
-                    <input matInput
-                        [(ngModel)]="destination"
-                        formControlName="cityGroup"
-                        [matAutocomplete]="autoGroup">
-                    <mat-autocomplete #autoGroup="matAutocomplete">
-                        @for (group of cityGroupOptions | async; track group) {
-                            <mat-optgroup [label]="group.country">
-                                @for (name of group.names; track name) {
-                                    <mat-option [value]="name">{{name}}</mat-option>
-                                }
-                            </mat-optgroup>
-                        }
-                    </mat-autocomplete>
-            </mat-form-field> 
-        </form>  -->
-    </td>
                 <td>
-                    <mat-form-field class="inputs">
-                        <mat-label>User id</mat-label>
-                        <input matInput [(ngModel)]="userId" name="userId">
-                    </mat-form-field>  
+                    <app-destination-auto-complete [(destination)]="destination"></app-destination-auto-complete>
+                </td>
+                <td>
+                    <app-custom-number-input label="User Id" [(value)]="userId"></app-custom-number-input>
                 </td> 
             </tr>
             <tr>
                 <td>
-                    <mat-form-field class="inputs">
-                        <mat-label>Tour id</mat-label>
-                        <input matInput [(ngModel)]="tourId" name="tourId">
-                    </mat-form-field>   
+                    <app-custom-number-input label="Tour Id" [(value)]="tourId"></app-custom-number-input> 
                 </td>  
                 <td>
-                    <mat-form-field class="inputs">
-                        <mat-label>Length of tour</mat-label>
-                        <input matInput [(ngModel)]="tourLength" name="tourLength">
-                    </mat-form-field>  
+                    <app-custom-number-input label="Length of Tour" [(value)]="tourLength"></app-custom-number-input>
                 </td>        
             </tr>
-
             <tr>
                 <td>
                     <mat-form-field id="inputs">

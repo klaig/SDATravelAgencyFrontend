@@ -26,6 +26,7 @@ import {MatIconModule} from '@angular/material/icon';
 import {MatTooltipModule} from '@angular/material/tooltip';
 import {MatButtonModule} from '@angular/material/button';
 import { DestinationAutoCompleteComponent } from './shared/destination-auto-complete/destination-auto-complete.component';
+import { CustomNumberInputComponent } from './shared/custom-number-input/custom-number-input.component';
 
 @NgModule({
   declarations: [
@@ -34,7 +35,8 @@ import { DestinationAutoCompleteComponent } from './shared/destination-auto-comp
     AdminApiComponent,
     PurchasedataApiComponent,
     TourApiComponent,
-    DestinationAutoCompleteComponent
+    DestinationAutoCompleteComponent,
+    CustomNumberInputComponent
   ],
   imports: [
     BrowserModule,
