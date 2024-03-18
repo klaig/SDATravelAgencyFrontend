@@ -1,12 +1,23 @@
-import { AfterViewInit, Component, ElementRef, HostListener, OnInit, ViewChild } from '@angular/core';
+import { Component } from '@angular/core';
 import { ApiService } from '../services/api.service';
+import { formatDate } from '@angular/common';
 
 @Component({
   selector: 'app-tour-api',
   templateUrl: './tour-api.component.html',
-  styleUrl: './tour-api.component.css'
+  styleUrl: './tour-api.component.css',
 })
 export class TourApiComponent{
+
+  startValue: number = 30;
+  endValue: number = 240;
+  destination: string = "Mexico_city";
+  userId: number = 1;
+  tourId: number = 1;
+  checked: boolean = false;
+  tourLength: number = 7;
+  minDate: string = "2024-03-19";
+  maxDate: string = "2024-03-21";
 
   constructor(private apiService: ApiService) { }
 
@@ -22,6 +33,7 @@ export class TourApiComponent{
   }
 
   getAllTours() {
+
     this.apiService.getAllTours().subscribe({
       next: (data) => {
         // Handle the data from the API
@@ -38,9 +50,8 @@ export class TourApiComponent{
   }
 
   findById() {
-    var tourId = document.getElementById("tour.id") as HTMLInputElement;
 
-    this.apiService.findById(parseInt(tourId.value)).subscribe({
+    this.apiService.findById(this.tourId).subscribe({
       next: (data) => {
         console.log(data);
         this.updateJsonOutput(data);
@@ -52,9 +63,8 @@ export class TourApiComponent{
   }
 
   findAllByDestination() {
-    var destination = document.getElementById("destination") as HTMLInputElement;
 
-    this.apiService.findAllByDestination(destination.value).subscribe({
+    this.apiService.findAllByDestination(this.destination).subscribe({
       next: (data) => {
         console.log(data);
         this.updateJsonOutput(data);
@@ -66,10 +76,11 @@ export class TourApiComponent{
   }
 
   findAllByDepartureDateBetween() {
-    var minDate = document.getElementById("mindate") as HTMLInputElement;
-    var maxDate = document.getElementById("maxdate") as HTMLInputElement;
 
-    this.apiService.findAllByDepartureDateBetween(minDate.value, maxDate.value).subscribe({
+    const formattedMinDate = formatDate(this.minDate, 'yyyy-MM-dd', 'en-US');
+    const formattedMaxDate = formatDate(this.maxDate, 'yyyy-MM-dd', 'en-US');
+
+    this.apiService.findAllByDepartureDateBetween(formattedMinDate, formattedMaxDate).subscribe({
       next: (data) => {
         console.log(data);
         this.updateJsonOutput(data);
@@ -81,9 +92,8 @@ export class TourApiComponent{
   }
 
   findAllByLength() {
-    var days = document.getElementById("days") as HTMLInputElement;
 
-    this.apiService.findAllByLength(parseInt(days.value)).subscribe({
+    this.apiService.findAllByLength(this.tourLength).subscribe({
       next: (data) => {
         console.log(data);
         this.updateJsonOutput(data);
@@ -95,10 +105,8 @@ export class TourApiComponent{
   }
 
   findAllByAdultPriceBetween() {
-    var minPrice = document.getElementById("minprice") as HTMLInputElement;
-    var maxPrice = document.getElementById("maxprice") as HTMLInputElement;
 
-    this.apiService.findAllByAdultPriceBetween(parseInt(minPrice.value), parseInt(maxPrice.value)).subscribe({
+    this.apiService.findAllByAdultPriceBetween(this.startValue, this.endValue).subscribe({
       next: (data) => {
         console.log(data);
         this.updateJsonOutput(data);
@@ -110,11 +118,8 @@ export class TourApiComponent{
   }
 
   findAllByPromoted() {
-    var checkBox = document.getElementById("promoted") as HTMLInputElement;
-    var isChecked = checkBox.checked;
-    var isPromoted = isChecked ? true : false;
 
-    this.apiService.findAllByPromoted(isPromoted).subscribe({
+    this.apiService.findAllByPromoted(this.checked).subscribe({
       next: (data) => {
         console.log(data);
         this.updateJsonOutput(data);
@@ -126,9 +131,8 @@ export class TourApiComponent{
   }
 
   findAllBoughtTours() {
-    var userId = document.getElementById("user.id") as HTMLInputElement;
 
-    this.apiService.findAllBoughtTours(parseInt(userId.value)).subscribe({
+    this.apiService.findAllBoughtTours(this.userId).subscribe({
       next: (data) => {
         console.log(data);
         this.updateJsonOutput(data);

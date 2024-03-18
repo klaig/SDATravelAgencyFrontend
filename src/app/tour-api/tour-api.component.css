@@ -52,7 +52,16 @@
     width: 100%;
 }
 
+.range {
+    width: 500px;
+}
+
 
 .fields {
     width: 100%;
+}
+
+
+.fields tr td .checkbox-row {
+    max-height: 56px;
 }
