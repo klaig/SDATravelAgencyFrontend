@@ -10,7 +10,7 @@
             <tr>
                 <td> 
                         <mat-label>Price Range</mat-label>
-                        <mat-slider min="20" max="500" discrete step="10">
+                        <mat-slider min="20" max="500" discrete step="10" class="range">
                             <input matInput [(ngModel)]="startValue" matSliderStartThumb name="startValue">
                             <input matInput [(ngModel)]="endValue" matSliderEndThumb name="endValue">
                         </mat-slider>
@@ -20,12 +20,27 @@
                 </td>
             </tr>
             <tr>   
-                <td>
-                    <mat-form-field class="inputs">
-                        <mat-label>Destination</mat-label>
-                        <input matInput [(ngModel)]="destination" name="destination">
-                    </mat-form-field>  
-                </td>
+    <td>
+        <app-destination-auto-complete [(destination)]="destination"></app-destination-auto-complete>
+        <!-- <form [formGroup]="cityForm">        
+            <mat-form-field>
+                <mat-label>Destination</mat-label>
+                    <input matInput
+                        [(ngModel)]="destination"
+                        formControlName="cityGroup"
+                        [matAutocomplete]="autoGroup">
+                    <mat-autocomplete #autoGroup="matAutocomplete">
+                        @for (group of cityGroupOptions | async; track group) {
+                            <mat-optgroup [label]="group.country">
+                                @for (name of group.names; track name) {
+                                    <mat-option [value]="name">{{name}}</mat-option>
+                                }
+                            </mat-optgroup>
+                        }
+                    </mat-autocomplete>
+            </mat-form-field> 
+        </form>  -->
+    </td>
                 <td>
                     <mat-form-field class="inputs">
                         <mat-label>User id</mat-label>
@@ -68,15 +83,20 @@
         <!-- Row for buttons -->
         <tr class="button-row">
             <div class="button-container">
-                    <button (click)="getAllTours()">getAllTours</button>
-                    <button (click)="findById()">findById</button>
-                    <button (click)="findAllByDestination()">findAllByDestination</button>
-                    <button (click)="findAllByDepartureDateBetween()">findAllByDepartureDateBetween</button>
-                    <button (click)="findAllByLength()">findAllByLength</button>
-                    <button (click)="findAllByPromoted()">findAllByPromoted</button>
-                    <button (click)="findAllBoughtTours()">findAllBoughtTours</button>
-                    <button (click)="findAllByAdultPriceBetween()">findAllByAdultPriceBetween</button>
+                    <button mat-raised-button color="primary" (click)="getAllTours()">getAllTours</button>
+                    <button mat-raised-button color="primary" (click)="findById()">findById</button>
+                    <button mat-raised-button color="primary" (click)="findAllByDestination()">findAllByDestination</button>
+                    <button mat-raised-button color="primary" (click)="findAllByDepartureDateBetween()">findAllByDepartureDateBetween</button>
+                    <button mat-raised-button color="primary" (click)="findAllByLength()">findAllByLength</button>
+                    <button mat-raised-button color="primary" (click)="findAllByPromoted()">findAllByPromoted</button>
+                    <button mat-raised-button color="primary" (click)="findAllBoughtTours()">findAllBoughtTours</button>
+                    <button mat-raised-button color="primary" (click)="findAllByAdultPriceBetween()">findAllByAdultPriceBetween</button>
             </div>
         </tr>
+
+
+            
+
+          
         
     

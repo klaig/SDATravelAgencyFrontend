@@ -8,6 +8,13 @@ import { ApiService } from '../services/api.service';
 })
 export class PurchasedataApiComponent {
 
+  purchasedataId: number = 1;
+  numberOfAdults: number = 3;
+  numberOfChildren: number = 2;
+  tourId: number = 1;
+  userId: number = 1;
+  checked: boolean = false;
+
   constructor(private apiService: ApiService) { }
 
   // Function to handle button clicks and update the JSON output
@@ -21,5 +28,11 @@ export class PurchasedataApiComponent {
     }
   }
 
+  // Methods to call the API
+  createPurchasedata() { }
 
+  calculateTotal() { }
+
+  finalizePurchase() { }
+  
 }

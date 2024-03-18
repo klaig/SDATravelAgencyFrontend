@@ -1,6 +1,8 @@
 import { NgModule, forwardRef } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-
+import { ReactiveFormsModule } from '@angular/forms';
+import { AsyncPipe } from '@angular/common';
+import { MatAutocompleteModule } from '@angular/material/autocomplete';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { TopBarComponent } from './top-bar/top-bar.component';
@@ -23,6 +25,7 @@ import {MatTabsModule} from '@angular/material/tabs';
 import {MatIconModule} from '@angular/material/icon';
 import {MatTooltipModule} from '@angular/material/tooltip';
 import {MatButtonModule} from '@angular/material/button';
+import { DestinationAutoCompleteComponent } from './shared/destination-auto-complete/destination-auto-complete.component';
 
 @NgModule({
   declarations: [
@@ -30,7 +33,8 @@ import {MatButtonModule} from '@angular/material/button';
     TopBarComponent,
     AdminApiComponent,
     PurchasedataApiComponent,
-    TourApiComponent
+    TourApiComponent,
+    DestinationAutoCompleteComponent
   ],
   imports: [
     BrowserModule,
@@ -47,7 +51,10 @@ import {MatButtonModule} from '@angular/material/button';
     MatTabsModule,
     MatButtonModule, 
     MatTooltipModule, 
-    MatIconModule
+    MatIconModule,
+    MatAutocompleteModule,
+    AsyncPipe,
+    ReactiveFormsModule
   ],
   providers: [
     provideAnimationsAsync(),
@@ -57,6 +64,7 @@ import {MatButtonModule} from '@angular/material/button';
   ],
   bootstrap: [AppComponent]
 })
+
 export class AppModule { 
   
 }

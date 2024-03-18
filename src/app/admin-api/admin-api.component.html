@@ -7,31 +7,64 @@
     <div class = "form-container" id="formContainer">
         <table class="fields">
         <tr>
-            <td class="spacer"></td>
+            <td>
+                <!-- <mat-form-field class="inputs">
+                    <mat-label>Price for an adult</mat-label>
+                    <input matInput [(ngModel)]="adultPrice" name="adultPrice">
+                </mat-form-field> -->
+            </td>
             <td><label class="adultprice-label" for="adultprice">adultprice</label></td>
             <td><input class="adultprice-input" type="number" id="adultprice" value="100"/></td>
             <td class="spacer"></td>
         </tr>
         <tr>
-            <td class="spacer"></td>
+            <td>
+                <!-- <mat-form-field class="inputs">
+                    <mat-label>Price for a child</mat-label>
+                    <input matInput [(ngModel)]="childPrice" name="childPrice">
+                </mat-form-field> -->
+            </td>
             <td><label class="childprice-label" for="childprice">childprice</label></td>
             <td><input class="childprice-input" type="number" id="childprice" value="50"/></td>
             <td class="spacer"></td>
         </tr>
         <tr>
-            <td class="spacer"></td>
+            <td>
+                <!-- <mat-form-field class="inputs">
+                    <mat-label>Departure Date</mat-label>
+                    <input matInput [(ngModel)]="departureDate" [matDatepicker]="picker">
+                    <mat-datepicker-toggle matIconSuffix [for]="picker">
+                      <mat-icon matDatepickerToggleIcon>keyboard_arrow_down</mat-icon>
+                    </mat-datepicker-toggle>
+                    <mat-datepicker #picker></mat-datepicker>
+                  </mat-form-field>                   -->
+            </td>
             <td><label class="departuredate-label" for="departuredate">departuredate</label></td>
             <td><input class="departuredate-input" type="date" id="departuredate" value="2024-03-17"/></td>
             <td class="spacer"></td>
         </tr>
         <tr>
-            <td class="spacer"></td>
+            <td>
+                <!-- <mat-form-field class="inputs">
+                    <mat-label>Return Date</mat-label>
+                    <input matInput [(ngModel)]="returnDate" [matDatepicker]="picker">
+                    <mat-datepicker-toggle matIconSuffix [for]="picker">
+                      <mat-icon matDatepickerToggleIcon>keyboard_arrow_down</mat-icon>
+                    </mat-datepicker-toggle>
+                    <mat-datepicker #picker></mat-datepicker>
+                  </mat-form-field> -->
+            </td>
             <td><label class="returndate-label" for="returndate">returndate</label></td>
             <td><input class="returndate-input" type="date" id="returndate" value="2024-03-24"/></td>
             <td class="spacer"></td>
         </tr>
         <tr>
-            <td class="spacer"></td>
+            <td>
+                <!-- <mat-form-field class="inputs">
+                    <mat-label>Destination</mat-label>
+                    <input matInput [(ngModel)]="destination" name="destination">
+                </mat-form-field> -->
+            </td>
             <td><label class="destination-label" for="destination">destination</label></td>
             <td><input class="destination-input" type="text" id="destination" value="MEXICO_CITY"/></td>
             <td class="spacer"></td>
@@ -72,13 +105,13 @@
         <!-- Row for buttons -->
         <tr class="button-row">
             <div class="button-container">
-                    <button (click)="findAllPurchaseData()">findAllPurchaseData</button>
-                    <button (click)="createTour()">createTour</button>
-                    <button (click)="updateTour()">updateTour</button>
-                    <button (click)="deleteTour()">deleteTour</button>
-                    <button (click)="findAllByIsPurchased()">findAllByIsPurchased</button>
-                    <button (click)="createTour()">x</button>
-                    <button (click)="createTour()">x</button>
+                <button mat-raised-button color="primary" (click)="findAllPurchaseData()">findAllPurchaseData</button>
+                <button mat-raised-button color="primary" (click)="createTour()">createTour</button>
+                <button mat-raised-button color="primary" (click)="updateTour()">updateTour</button>
+                <button mat-raised-button color="primary" (click)="deleteTour()">deleteTour</button>
+                <button mat-raised-button color="primary" (click)="findAllByIsPurchased()">findAllByIsPurchased</button>
+                <button mat-raised-button color="primary" (click)="findAllByUserId()">findAllByUserId</button>
+                <button mat-raised-button color="primary" (click)="findAllUsersByTour()">findAllUsersByTour</button>
                 </div>
             </tr>
 

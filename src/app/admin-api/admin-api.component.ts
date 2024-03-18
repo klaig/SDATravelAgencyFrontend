@@ -151,4 +151,8 @@ export class AdminApiComponent {
       }
     });
   }
+
+  findAllByUserId() { }
+
+  findAllUsersByTour() { }
 }

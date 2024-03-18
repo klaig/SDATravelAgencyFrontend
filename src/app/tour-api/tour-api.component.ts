@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { ApiService } from '../services/api.service';
 import { formatDate } from '@angular/common';
 
@@ -7,11 +7,11 @@ import { formatDate } from '@angular/common';
   templateUrl: './tour-api.component.html',
   styleUrl: './tour-api.component.css',
 })
-export class TourApiComponent{
+export class TourApiComponent implements OnInit{
 
-  startValue: number = 30;
-  endValue: number = 240;
-  destination: string = "Mexico_city";
+  startValue: number = 50;
+  endValue: number = 300;
+  destination: string = "Rome"; 
   userId: number = 1;
   tourId: number = 1;
   checked: boolean = false;
@@ -20,6 +20,9 @@ export class TourApiComponent{
   maxDate: string = "2024-03-21";
 
   constructor(private apiService: ApiService) { }
+  
+  ngOnInit() {
+  }
 
   // Function to handle button clicks and update the JSON output
   updateJsonOutput(data: any): void {
