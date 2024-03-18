@@ -8,10 +8,7 @@
         <table class="fields">
         <tr>
             <td>
-                <!-- <mat-form-field class="inputs">
-                    <mat-label>Price for an adult</mat-label>
-                    <input matInput [(ngModel)]="adultPrice" name="adultPrice">
-                </mat-form-field> -->
+                <!-- <app-custom-number-input label="Price for Adults" [(value)]="adultPrice"></app-custom-number-input> -->
             </td>
             <td><label class="adultprice-label" for="adultprice">adultprice</label></td>
             <td><input class="adultprice-input" type="number" id="adultprice" value="100"/></td>
@@ -19,10 +16,7 @@
         </tr>
         <tr>
             <td>
-                <!-- <mat-form-field class="inputs">
-                    <mat-label>Price for a child</mat-label>
-                    <input matInput [(ngModel)]="childPrice" name="childPrice">
-                </mat-form-field> -->
+                <!-- <app-custom-number-input label="Price for Children" [(value)]="childPrice"></app-custom-number-input> -->
             </td>
             <td><label class="childprice-label" for="childprice">childprice</label></td>
             <td><input class="childprice-input" type="number" id="childprice" value="50"/></td>
@@ -68,10 +62,7 @@
         </tr>
         <tr>
             <td>
-                <!-- <mat-form-field class="inputs">
-                    <mat-label>Available Seats</mat-label>
-                    <input matInput [(ngModel)]="availableSeats" name="availableSeats">
-                </mat-form-field> -->
+                <!-- <app-custom-number-input label="Available Seats" [(value)]="availableSeats"></app-custom-number-input> -->
             </td>
             <td><label class="availableseats-label" for="availableseats">availableseats</label></td>
             <td><input class="availableseats-input" type="text" id="availableseats" value="25"/></td>
@@ -79,23 +70,24 @@
         </tr>
         <tr>
             <td>
-                <!-- <mat-form-field class="inputs">
-                    <mat-label>PurchaseData Id</mat-label>
-                    <input matInput [(ngModel)]="purchaseDataId" name="purchaseDataId">
-                </mat-form-field> -->
+                <!-- <app-custom-number-input label="PurchaseData Id" [(value)]="purchaseDataId"></app-custom-number-input> -->
             </td>
             <td><label class="purchaseData.userId-label" for="purchaseData.userId">purchaseData.userId</label></td>
             <td><input class="purchaseData.userId-input" type="text" id="purchasedata.userid" value="1"/></td>
             <td class="spacer"></td>
         </tr>
         <tr>
-            <td class="spacer"></td>
+            <td>
+                <!-- <app-custom-number-input label="User Id" [(value)]="userId"></app-custom-number-input> -->
+            </td>
             <td><label class="user.id-label" for="user.id">user.id</label></td>
             <td><input class="user.id-input" type="text" id="user.id" value="1"/></td>
             <td class="spacer"></td>
         </tr>
         <tr>
-            <td class="spacer"></td>
+            <td>
+                <!-- <app-custom-number-input label="Tour Id" [(value)]="tourId"></app-custom-number-input> -->
+            </td>
             <td><label class="tour.id-label" for="tour.id">tour.id</label></td>
             <td><input class="tour.id-input" type="text" id="tour.id" value="6"/></td>
             <td class="spacer"></td>
