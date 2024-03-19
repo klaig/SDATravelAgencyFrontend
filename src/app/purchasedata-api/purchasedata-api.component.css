@@ -52,6 +52,11 @@
     width: 100%;
 }
 
+.button-row {
+    display: flex;
+    width: 100%;
+    padding-top: 2em;
+}
 
 .fields {
     width: 100%;

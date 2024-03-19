@@ -27,6 +27,10 @@ import { MatTooltipModule } from '@angular/material/tooltip';
 import { MatButtonModule } from '@angular/material/button';
 import { DestinationAutoCompleteComponent } from './shared/destination-auto-complete/destination-auto-complete.component';
 import { CustomNumberInputComponent } from './shared/custom-number-input/custom-number-input.component';
+import { LoginComponent } from './login/login.component';
+import { RegisterComponent } from './register/register.component';
+import { DashboardComponent } from './pages/dashboard/dashboard.component';
+import { HomeComponent } from './pages/home/home.component';
 
 @NgModule({
   declarations: [
@@ -36,7 +40,10 @@ import { CustomNumberInputComponent } from './shared/custom-number-input/custom-
     PurchasedataApiComponent,
     TourApiComponent,
     DestinationAutoCompleteComponent,
-    CustomNumberInputComponent
+    CustomNumberInputComponent,
+    RegisterComponent,
+    DashboardComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule,
@@ -56,7 +63,8 @@ import { CustomNumberInputComponent } from './shared/custom-number-input/custom-
     MatIconModule,
     MatAutocompleteModule,
     AsyncPipe,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    LoginComponent
   ],
   providers: [
     provideAnimationsAsync(),
