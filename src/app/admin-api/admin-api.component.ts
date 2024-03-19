@@ -9,9 +9,18 @@ import { Tour } from '../models/tour.model';
 })
 export class AdminApiComponent {
 
+    adultPrice: number = 1500;
+    childPrice: number = 700; 
+    departureDate: string = "2024-05-01"; 
+    returnDate: string = "2024-05-15"; 
+    destination: string = "BANGKOK"; 
+    availableSeats: number = 12; 
+    purchaseDataId: number = 1; 
+    userId: number = 1; 
+    tourId: number = 1; 
+    checked: boolean = true;
 
   constructor(private apiService: ApiService) {}
-
 
   // Function to handle button clicks and update the JSON output
   updateJsonOutput(data: any): void {
@@ -25,6 +34,7 @@ export class AdminApiComponent {
   }
 
   findAllPurchaseData() {
+
     this.apiService.findAllPurchaseData().subscribe({
       next: (data) => {
         console.log(data);
@@ -38,34 +48,22 @@ export class AdminApiComponent {
   }
 
   createTour() {
-    // Get checkbox value
-    var checkBox = document.getElementById("promoted") as HTMLInputElement;
-    var isChecked = checkBox.checked;
-    var isPromoted = isChecked ? true : false;
-    var destination = document.getElementById("destination") as HTMLInputElement;
-    var departureDate = document.getElementById("departuredate") as HTMLInputElement;
-    var returnDate = document.getElementById("returndate") as HTMLInputElement;
-    var adultPrice = document.getElementById("adultprice") as HTMLInputElement;
-    var childPrice = document.getElementById("childprice") as HTMLInputElement;
-    var availableSeats = document.getElementById("availableseats") as HTMLInputElement;
-
+   
     // Calculate length of tour
-    var time = new Date(returnDate.value).getTime() - new Date(departureDate.value).getTime();
+    var time = new Date(this.returnDate).getTime() - new Date(this.departureDate).getTime();
     var days = time / (1000 * 3600 * 24);
-
 
     // initialize a tour object
     var tour: Tour = {
-      destination: destination.value.toUpperCase(),
-      departureDate: departureDate.value,
-      returnDate: returnDate.value,
+      destination: this.destination.toUpperCase(),
+      departureDate: this.departureDate,
+      returnDate: this.returnDate,
       length: days,
-      adultPrice: parseFloat(adultPrice.value),
-      childPrice: parseFloat(childPrice.value),
-      promoted: isPromoted,
-      availableSeats: parseInt(availableSeats.value)
+      adultPrice: this.adultPrice,
+      childPrice: this.childPrice,
+      promoted: this.checked,
+      availableSeats: this.availableSeats
     };
-    
 
     this.apiService.createTour(tour).subscribe({
       next: (data) => {
@@ -80,36 +78,24 @@ export class AdminApiComponent {
   }
 
   updateTour() {
-    // Get checkbox value
-    var checkBox = document.getElementById("promoted") as HTMLInputElement;
-    var isChecked = checkBox.checked;
-    var isPromoted = isChecked ? true : false;
-    var destination = document.getElementById("destination") as HTMLInputElement;
-    var departureDate = document.getElementById("departuredate") as HTMLInputElement;
-    var returnDate = document.getElementById("returndate") as HTMLInputElement;
-    var adultPrice = document.getElementById("adultprice") as HTMLInputElement;
-    var childPrice = document.getElementById("childprice") as HTMLInputElement;
-    var availableSeats = document.getElementById("availableseats") as HTMLInputElement;
-
-    var tourId = document.getElementById("tour.id") as HTMLInputElement;
 
     // Calculate length of tour
-    var time = new Date(returnDate.value).getTime() - new Date(departureDate.value).getTime();
+    var time = new Date(this.returnDate).getTime() - new Date(this.departureDate).getTime();
     var days = time / (1000 * 3600 * 24);
 
     // initialize a tour object
     var tour: Tour = {
-      destination: destination.value.toUpperCase(),
-      departureDate: departureDate.value,
-      returnDate: returnDate.value,
+      destination: this.destination.toUpperCase(),
+      departureDate: this.departureDate,
+      returnDate: this.returnDate,
       length: days,
-      adultPrice: parseFloat(adultPrice.value),
-      childPrice: parseFloat(childPrice.value),
-      promoted: isPromoted,
-      availableSeats: parseInt(availableSeats.value)
+      adultPrice: this.adultPrice,
+      childPrice: this.childPrice,
+      promoted: this.checked,
+      availableSeats: this.availableSeats
     };
 
-    this.apiService.updateTour(parseInt(tourId.value), tour).subscribe({
+    this.apiService.updateTour(this.tourId, tour).subscribe({
       next: (data) => {
         // Do something with the data
         console.log(data);
@@ -122,9 +108,8 @@ export class AdminApiComponent {
   }
 
   deleteTour() {
-    var tourId = document.getElementById("tour.id") as HTMLInputElement;
 
-    this.apiService.deleteTour(parseInt(tourId.value)).subscribe({
+    this.apiService.deleteTour(this.tourId).subscribe({
       next: (data) => {
         // Do something with the data
         console.log(data);
@@ -137,11 +122,8 @@ export class AdminApiComponent {
   }
 
   findAllByIsPurchased() {
-    var checkBox = document.getElementById("promoted") as HTMLInputElement;
-    var isChecked = checkBox.checked;
-    var isPurchased = isChecked ? true : false;
 
-    this.apiService.findAllByIsPurchased(isPurchased).subscribe({
+    this.apiService.findAllByIsPurchased(this.checked).subscribe({
       next: (data) => {
         console.log(data);
         this.updateJsonOutput(data);
@@ -153,9 +135,8 @@ export class AdminApiComponent {
   }
 
   findAllByUserId()  {
-    var userId = document.getElementById("user.id") as HTMLInputElement;
 
-    this.apiService.findAllByUserId(parseInt(userId.value)).subscribe({
+    this.apiService.findAllByUserId(this.userId).subscribe({
       next: (data) => {
         console.log(data);
         this.updateJsonOutput(data);
@@ -167,9 +148,8 @@ export class AdminApiComponent {
   }
 
   findAllUsersByTour() {
-    var tourId = document.getElementById("tour.id") as HTMLInputElement;
 
-    this.apiService.findAllUsersByTour(parseInt(tourId.value)).subscribe({
+    this.apiService.findAllUsersByTour(this.tourId).subscribe({
       next: (data) => {
         console.log(data);
         this.updateJsonOutput(data);

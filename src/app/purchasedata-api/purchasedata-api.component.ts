@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { ApiService } from '../services/api.service';
+import { PurchaseData } from '../models/purchasedata.model';
 
 @Component({
   selector: 'app-purchasedata-api',
@@ -8,6 +9,7 @@ import { ApiService } from '../services/api.service';
 })
 export class PurchasedataApiComponent {
 
+  // values for ngModel
   purchasedataId: number = 1;
   numberOfAdults: number = 3;
   numberOfChildren: number = 2;
@@ -29,10 +31,55 @@ export class PurchasedataApiComponent {
   }
 
   // Methods to call the API
-  createPurchasedata() { }
+  createPurchasedata() { 
+    // initialize purchasedata object
+    var purchaseData: PurchaseData = {
+      id:  this.purchasedataId,
+      numberOfAdults: this.numberOfAdults,
+      numberOfChildren: this.numberOfChildren,
+      tourId: this.tourId,
+      userId: this.userId,
+      isPurchased: this.checked
+    }; 
+    // calling API
+    this.apiService.createPurchasedData(purchaseData).subscribe({
+      next: (data) => {
+        // Do something with the data
+        console.log(data);
+        this.updateJsonOutput(data);
+      },
+      error: (error) => {
+        console.error(error);
+      }
+    });
+  }
 
-  calculateTotal() { }
+  calculateTotal() { 
+    // calling API
+    this.apiService.calculateTotal(this.purchasedataId, this.tourId).subscribe({
+      next: (data) => {
+        // Do something with the data
+        console.log(data);
+        this.updateJsonOutput(data);
+      },
+      error: (error) => {
+        console.error(error);
+      }
+    });
+  }
 
-  finalizePurchase() { }
+  finalizePurchase() { 
+
+    this.apiService.finalizePurchase(this.purchasedataId).subscribe({
+      next: (data) => {
+        // Do something with the data
+        console.log(data);
+        this.updateJsonOutput(data);
+      },
+      error: (error) => {
+        console.error(error);
+      }
+    });
+  }
   
 }

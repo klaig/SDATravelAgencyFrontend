@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Tour } from '../models/tour.model';
+import { PurchaseData} from '../models/purchasedata.model';
 
 @Injectable({
   providedIn: 'root'
@@ -99,7 +100,17 @@ export class ApiService {
   // Tour api calls end
   // PurchaseData api calls start
 
+  createPurchasedData(purchaseData: PurchaseData) {
+    return this.http.post('http://localhost:8080/api/v1/tour/purchase', purchaseData);
+  }
 
+  calculateTotal(purchaseDataId: number, tourId: number) {
+    return this.http.get('http://localhost:8080/api/v1/tour/price?tourId=' + purchaseDataId +'&purchaseDataId=' + tourId);
+  }
+
+  finalizePurchase(purchaseDataId: number) {
+    return this.http.get('http://localhost:8080/api/v1/tour/purchase?purchaseDataId=' + purchaseDataId );
+  }
 
   // PurchaseData api calls end
 }

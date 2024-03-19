@@ -1,4 +1,4 @@
-export interface purchasedata {
+export interface PurchaseData {
     id: number;
     numberOfAdults: number;
     numberOfChildren: number;
