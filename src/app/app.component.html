@@ -5,7 +5,29 @@
             <h1>test space</h1>
         </div>
     </main>
-    <div class="tour-api">
+    <mat-tab-group dynamicHeight>
+        <mat-tab label="Tour API">
+            <div class="tour-api">
+                <app-tour-api class="component"></app-tour-api>
+            </div>
+        </mat-tab>
+        <mat-tab label="PurchaseData API">
+            <div class="purchasedata-api">
+                <app-purchasedata-api class="component"></app-purchasedata-api>
+            </div>
+        </mat-tab>
+        <mat-tab label="Admin API">
+            <div class="admin-api">
+                <app-admin-api class="component"></app-admin-api>
+            </div>
+        </mat-tab>
+      </mat-tab-group>
+    <div class="footer" #footer>
+        <button mat-fab matTooltip="Nice" color="primary" class = "heartButton">
+            <mat-icon>favorite</mat-icon>
+        </button>
+    </div>  
+    <!-- <div class="tour-api">
         <app-tour-api class="component"></app-tour-api>
     </div>
     <div class="divider"></div>
@@ -15,7 +37,7 @@
     <div class="divider"></div>
     <div class="admin-api">
         <app-admin-api class="component"></app-admin-api>
-    </div>
+    </div> -->
 </body>
 
 <router-outlet />

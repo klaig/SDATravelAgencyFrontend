@@ -7,55 +7,87 @@
     <div class = "form-container" id="formContainer">
         <table class="fields">
         <tr>
-            <td class="spacer"></td>
+            <td>
+                <!-- <app-custom-number-input label="Price for Adults" [(value)]="adultPrice"></app-custom-number-input> -->
+            </td>
             <td><label class="adultprice-label" for="adultprice">adultprice</label></td>
             <td><input class="adultprice-input" type="number" id="adultprice" value="100"/></td>
             <td class="spacer"></td>
         </tr>
         <tr>
-            <td class="spacer"></td>
+            <td>
+                <!-- <app-custom-number-input label="Price for Children" [(value)]="childPrice"></app-custom-number-input> -->
+            </td>
             <td><label class="childprice-label" for="childprice">childprice</label></td>
             <td><input class="childprice-input" type="number" id="childprice" value="50"/></td>
             <td class="spacer"></td>
         </tr>
         <tr>
-            <td class="spacer"></td>
+            <td>
+                <!-- <mat-form-field class="inputs">
+                    <mat-label>Departure Date</mat-label>
+                    <input matInput [(ngModel)]="departureDate" [matDatepicker]="picker">
+                    <mat-datepicker-toggle matIconSuffix [for]="picker">
+                      <mat-icon matDatepickerToggleIcon>keyboard_arrow_down</mat-icon>
+                    </mat-datepicker-toggle>
+                    <mat-datepicker #picker></mat-datepicker>
+                  </mat-form-field>                   -->
+            </td>
             <td><label class="departuredate-label" for="departuredate">departuredate</label></td>
             <td><input class="departuredate-input" type="date" id="departuredate" value="2024-03-17"/></td>
             <td class="spacer"></td>
         </tr>
         <tr>
-            <td class="spacer"></td>
+            <td>
+                <!-- <mat-form-field class="inputs">
+                    <mat-label>Return Date</mat-label>
+                    <input matInput [(ngModel)]="returnDate" [matDatepicker]="picker">
+                    <mat-datepicker-toggle matIconSuffix [for]="picker">
+                      <mat-icon matDatepickerToggleIcon>keyboard_arrow_down</mat-icon>
+                    </mat-datepicker-toggle>
+                    <mat-datepicker #picker></mat-datepicker>
+                  </mat-form-field> -->
+            </td>
             <td><label class="returndate-label" for="returndate">returndate</label></td>
             <td><input class="returndate-input" type="date" id="returndate" value="2024-03-24"/></td>
             <td class="spacer"></td>
         </tr>
         <tr>
-            <td class="spacer"></td>
+            <td>
+                <!-- <app-destination-auto-complete [(destination)]="destination"></app-destination-auto-complete> -->
+            </td>
             <td><label class="destination-label" for="destination">destination</label></td>
             <td><input class="destination-input" type="text" id="destination" value="MEXICO_CITY"/></td>
             <td class="spacer"></td>
         </tr>
         <tr>
-            <td class="spacer"></td>
+            <td>
+                <!-- <app-custom-number-input label="Available Seats" [(value)]="availableSeats"></app-custom-number-input> -->
+            </td>
             <td><label class="availableseats-label" for="availableseats">availableseats</label></td>
             <td><input class="availableseats-input" type="text" id="availableseats" value="25"/></td>
             <td class="spacer"></td>
         </tr>
         <tr>
-            <td class="spacer"></td>
-            <td><label class="purchaseDate.userId-label" for="purchaseDate.userId">purchaseDate.userId</label></td>
-            <td><input class="purchaseDate.userId-input" type="text" id="purchasedate.userid" value="1"/></td>
+            <td>
+                <!-- <app-custom-number-input label="PurchaseData Id" [(value)]="purchaseDataId"></app-custom-number-input> -->
+            </td>
+            <td><label class="purchaseData.userId-label" for="purchaseData.userId">purchaseData.userId</label></td>
+            <td><input class="purchaseData.userId-input" type="text" id="purchasedata.userid" value="1"/></td>
             <td class="spacer"></td>
         </tr>
         <tr>
-            <td class="spacer"></td>
+            <td>
+                <!-- <app-custom-number-input label="User Id" [(value)]="userId"></app-custom-number-input> -->
+            </td>
             <td><label class="user.id-label" for="user.id">user.id</label></td>
             <td><input class="user.id-input" type="text" id="user.id" value="1"/></td>
             <td class="spacer"></td>
         </tr>
         <tr>
-            <td class="spacer"></td>
+            <td>
+                <!-- <app-custom-number-input label="Tour Id" [(value)]="tourId"></app-custom-number-input> -->
+            </td>
             <td><label class="tour.id-label" for="tour.id">tour.id</label></td>
             <td><input class="tour.id-input" type="text" id="tour.id" value="6"/></td>
             <td class="spacer"></td>
@@ -72,13 +104,13 @@
         <!-- Row for buttons -->
         <tr class="button-row">
             <div class="button-container">
-                    <button (click)="findAllPurchaseData()">findAllPurchaseData</button>
-                    <button (click)="createTour()">createTour</button>
-                    <button (click)="updateTour()">updateTour</button>
-                    <button (click)="deleteTour()">deleteTour</button>
-                    <button (click)="findAllByIsPurchased()">findAllByIsPurchased</button>
-                    <button (click)="createTour()">x</button>
-                    <button (click)="createTour()">x</button>
+                <button mat-raised-button color="primary" (click)="findAllPurchaseData()">findAllPurchaseData</button>
+                <button mat-raised-button color="primary" (click)="createTour()">createTour</button>
+                <button mat-raised-button color="primary" (click)="updateTour()">updateTour</button>
+                <button mat-raised-button color="primary" (click)="deleteTour()">deleteTour</button>
+                <button mat-raised-button color="primary" (click)="findAllByIsPurchased()">findAllByIsPurchased</button>
+                <button mat-raised-button color="primary" (click)="findAllByUserId()">findAllByUserId</button>
+                <button mat-raised-button color="primary" (click)="findAllUsersByTour()">findAllUsersByTour</button>
                 </div>
             </tr>
 

@@ -1,7 +1,4 @@
-.buttons {
-    display: flex;
-    justify-content: space-between;
-}
+
 
 .flex-container {
     display: flex;
@@ -39,6 +36,7 @@
 .button-row {
     display: flex;
     width: 100%;
+    padding-top: 2em;
 }
 
 .button-container button {
@@ -52,7 +50,16 @@
     width: 100%;
 }
 
+.range {
+    min-width: 300px;
+}
+
 
 .fields {
     width: 100%;
+}
+
+
+.fields tr td .checkbox-row {
+    max-height: 56px;
 }
