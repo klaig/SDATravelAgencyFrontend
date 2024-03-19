@@ -152,7 +152,31 @@ export class AdminApiComponent {
     });
   }
 
-  findAllByUserId() { }
+  findAllByUserId()  {
+    var userId = document.getElementById("user.id") as HTMLInputElement;
 
-  findAllUsersByTour() { }
+    this.apiService.findAllByUserId(parseInt(userId.value)).subscribe({
+      next: (data) => {
+        console.log(data);
+        this.updateJsonOutput(data);
+      },
+      error: (error) => {
+        console.error(error);
+      }
+    });
+  }
+
+  findAllUsersByTour() {
+    var tourId = document.getElementById("tour.id") as HTMLInputElement;
+
+    this.apiService.findAllUsersByTour(parseInt(tourId.value)).subscribe({
+      next: (data) => {
+        console.log(data);
+        this.updateJsonOutput(data);
+      },
+      error: (error) => {
+        console.error(error);
+      }
+    });
+  }
 }

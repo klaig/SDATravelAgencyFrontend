@@ -29,18 +29,30 @@ export class ApiService {
 
   // PathVariable, RequestBody put request
   updateTour(tourId: number, tour: Tour) {
-    return this.http.put(`http://localhost:8080/api/admin/tours/${tourId}`, tour);
+    return this.http.put('http://localhost:8080/api/admin/tours/${tourId}', tour);
   }
 
   // PathVariable delete request
   deleteTour(tourId: number) {
-    return this.http.delete(`http://localhost:8080/api/admin/tours/${tourId}`);
+    return this.http.delete('http://localhost:8080/api/admin/tours/${tourId}');
   }
 
   // RequestParam get request
   findAllByIsPurchased(isPurchased: boolean) {
     return this.http.get('http://localhost:8080/api/admin/tour/bought?isPurchased=' + isPurchased);
   }
+
+  // returns purchased tours by userId
+  findAllByUserId(userId: number) {
+    return this.http.get('http://localhost:8080/api/admin/tour/userId?userId='+ userId);
+  }
+
+  // returns users who have bought tour
+  findAllUsersByTour(tourId: number) {
+    return this.http.get('http://localhost:8080/api/admin/tour/users?userId='+ tourId);
+  }
+
+
 
   // Admin api calls end
   // Tour api calls start
