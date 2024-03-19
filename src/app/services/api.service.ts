@@ -2,6 +2,10 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Tour } from '../models/tour.model';
 import { PurchaseData} from '../models/purchasedata.model';
+import { LoginDto } from '../models/logindto.model';
+import { SignUpDto } from '../models/signupdto.model';
+import { Observable } from 'rxjs';
+import { AuthResponse } from '../login/login.component';
 
 @Injectable({
   providedIn: 'root'
@@ -113,4 +117,14 @@ export class ApiService {
   }
 
   // PurchaseData api calls end
+
+  // Auth api calls start
+
+  authenticateUser(loginDto: LoginDto): Observable<AuthResponse> {
+    return this.http.post<AuthResponse>('http://localhost:8080/api/auth/signin', loginDto);
+  }
+
+  registerNewUser(SignUpDto: SignUpDto) {
+    return this.http.post('http://localhost:8080/api/auth/signup', SignUpDto);
+  }
 }

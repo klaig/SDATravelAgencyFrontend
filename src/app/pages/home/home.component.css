@@ -1,0 +1,43 @@
+main {
+    background-color: #c93838; /* Fallback color */
+    background-image: url(/assets/images/background.jpg);
+}
+
+div {
+   /* stretch */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+
+.component {
+    min-width: 1000px;
+    padding-bottom: 5em;
+}
+
+.divider {
+    height: 2px;
+    background-color: #2195f375;
+    margin: 20px 0;
+}
+
+.test-space {
+    height: 250px;
+}
+
+.heartButton {
+    margin-right: 4em;
+}
+
+.footer {
+    width: 100%;
+    background-color: #08243b;
+    color: white;
+    padding: 20px 0 20px 0;
+    text-align: left;
+    min-height: 50px;
+    display: flex;
+    align-items: stretch;
+    justify-content: right;
+}

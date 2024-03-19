@@ -1,8 +1,16 @@
+
 import { HttpClient } from '@angular/common/http';
 import { Component } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { Router } from '@angular/router';
+import { LoginDto } from '../models/logindto.model';
+import { ApiService } from '../services/api.service';
+
+export interface AuthResponse {
+  token: string;
+  type: string;
+}
 
 @Component({
   selector: 'app-login',
@@ -13,31 +21,32 @@ import { Router } from '@angular/router';
 })
 export class LoginComponent {
 
-  loginObj: Login;
+  usernameOrEmail: string = 'kartul';
+  password: string = 'kartul';
 
-  constructor(private http: HttpClient,private router: Router) {
-    this.loginObj = new Login();
+
+  constructor(private router: Router, private apiService: ApiService) {
   }
 
   onLogin() {
-    debugger;
-    this.http.post('', this.loginObj).subscribe((res:any)=>{
-      if(res.result) {
-        alert("Login Success");
-        localStorage.setItem('angular17token', res.data.token)
-        this.router.navigateByUrl('/dashboard')
-      } else {
-        alert(res.message)
+    var loginDto: LoginDto = {
+      usernameOrEmail: this.usernameOrEmail,
+      password: this.password
+    }
+
+    this.apiService.authenticateUser(loginDto).subscribe({
+      next: (data: AuthResponse) => {
+          console.log(data);
+          alert("Login Success");
+          localStorage.setItem('angular17token', data.token);
+          this.router.navigateByUrl('/home');
+      },
+      error: (error) => {
+          console.error(error);
       }
-    })
+    });
   }
 }
-
-export class Login { 
-    userId: string;
-    Password: string;
-    constructor() {
-      this.userId = '';
-      this.Password = '';
-    } 
-}
+// //alert("Login Success");
+// localStorage.setItem('angular17token', res.data.token)
+// this.router.navigateByUrl('/dashboard')
