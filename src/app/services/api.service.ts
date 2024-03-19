@@ -44,7 +44,7 @@ export class ApiService {
 
   // returns purchased tours by userId
   findAllByUserId(userId: number) {
-    return this.http.get('http://localhost:8080/api/admin/tour/userId?userId=');
+    return this.http.get('http://localhost:8080/api/admin/tour/userId?userId='+ userId);
   }
 
   // returns users who have bought tour
