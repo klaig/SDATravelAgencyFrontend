@@ -4,15 +4,90 @@
   }
 
 main {
-    background-color: #BBDEFB;
+    background-color: white;
 }
 
-.tabs .europe-content {
-    text-align: center;
-    flex: 1;
-    /* Add other styles as needed */
-  }
+mat-divider {
+  margin-top: 3em;
+  margin-bottom: 2em;
+}
 
-mat-tab .tabs{
-  flex: 1;
+#page-header {
+  margin-top: 4em;
+  margin-bottom: 4em;
+  grid-column: 2 / 3; /* Places the content in the second column */
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+}
+
+.flex-container {
+  grid-column: 2 / 3;
+}
+
+h1 {
+  margin-bottom: 2em;
+  font-size: xx-large;
+}
+
+p {
+  font-size: medium;
+}
+
+.city-gallery {
+  max-width: 90%;
+  margin: auto; /* Centers the gallery */
+}
+
+.grid-container {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr); /* Creates a four-column layout */
+  gap: 20px; /* Adjust the gap as needed */
+  margin-bottom: 5em;
+}
+
+.city {
+  position: relative; /* Needed for absolute positioning of the text */
+}
+
+.city img {
+  width: 100%; /* Ensure the image fills the container */
+  height: 100%; /* Maintain aspect ratio */
+  display: block; /* Remove any extra space beneath the image */
+  object-fit: cover;
+}
+
+.city-name {
+  position: absolute;
+  text-align: left;
+  text-align: top;
+  top: 10px; /* Position the text at the bottom of the image */
+  left: 10px; /* Position the text from the left side of the image */
+  color: white; /* Text color */
+  padding: 5px;
+  margin: 0; /* Remove any default margins */
+
+}
+
+.country-name {
+  position: absolute;
+  text-align: left;
+  text-align: top;
+  top: 30px; /* Position the text at the bottom of the image */
+  left: 15px; /* Position the text from the left side of the image */
+  color: white; /* Text color */
+  padding: 5px;
+  margin: 0; /* Remove any default margins */
+
+}
+
+.footer {
+  width: 100%;
+  background-color: #08243b;
+  color: white;
+  padding: 20px 0 20px 0;
+  text-align: left;
+  min-height: 50px;
+  display: flex;
+  align-items: stretch;
+  justify-content: right;
 }

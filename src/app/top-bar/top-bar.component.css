@@ -38,7 +38,7 @@
     width: 100%;
     display: flex;
     justify-content: center;
-    background-color: #2196F3;
+    background-color: #3f51b5;
     padding: 0 0; /* Add padding to the top and bottom of the navbar */
 }
 
@@ -51,7 +51,11 @@
 .navbar button{
     padding-left: 1em;
     padding-right: 1em;
+    color: white;
+}
 
+.navbar button:hover{
+    background-color: #5f6fca;
 }
 
 nav ul {

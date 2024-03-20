@@ -1,15 +1,94 @@
 <main>
-    <mat-tab-group class="equal-width-tabs">
-        <mat-tab class="tabs" label="Europe">
-            <div class="europe-content">
-                <h1>Europe</h1>
+    <mat-tab-group>
+        <mat-tab label="Europe">
+            <section>
+                <header id="page-header">
+                    <div class="flex-container">
+                        <h1 class="title">Discover Europe</h1>
+                        
+                            <p class="text">Embark on a journey through Europe, the cradle of Western civilization and a continent that boasts an incredible diversity of cultures, languages, and landscapes. With its rich tapestry of history, Europe is a treasure trove for travelers seeking to explore its centuries-old cities, iconic landmarks, and the stories embedded in its cobblestone streets.</p>
+                            <p class="text">From the romance of Paris and the historical grandeur of Rome to the avant-garde art scenes of Berlin and the regal splendor of London, Europe's cities are as varied as they are fascinating. Wander through the narrow alleys of Venice, take in the modernist architecture of Barcelona, or bask in the imperial aura of Vienna. Each city is a world unto itself, promising endless discovery.</p>
+                        
+                        <mat-divider></mat-divider>
+
+                    </div>
+                </header>
+                <section class="city-gallery">
+                    <header class="gallery-header">
+                      <h2>Explore Our Destinations</h2>
+                    </header>
+                    <div class="grid-container">
+                      <div class="city">
+                        <img src="/assets/images/rome.jpg" alt="Rome">
+                        <h2 class="city-name">Rome</h2>
+                        <h3 class="country-name">Italy</h3>
+                      </div>
+                      <div class="city">
+                        <img src="/assets/images/venice.jpg" alt="Venice">
+                        <h2 class="city-name">Venice</h2>
+                        <h3 class="country-name">Italy</h3>
+                      </div>
+                      <div class="city">
+                        <img src="/assets/images/barcelona.jpg" alt="Barcelona">
+                        <h2 class="city-name">Barcelona</h2>
+                        <h3 class="country-name">Spain</h3>
+                      </div>
+                      <div class="city">
+                        <img src="/assets/images/malaga.jpg" alt="Malaga">
+                        <h2 class="city-name">Malaga</h2>
+                        <h3 class="country-name">Spain</h3>
+                      </div>
+                    </div>
+                  </section>
+                  
+            </section>
+            <div class="footer" #footer>
+                <button mat-fab matTooltip="Nice" color="primary" class = "heartButton">
+                    <mat-icon>favorite</mat-icon>
+                </button>
             </div>
         </mat-tab>
-        <mat-tab label="tabs">
-            Content 2
+        <mat-tab label="Asia">
+            <section>
+                <header id="page-header">
+                    <div class="flex-container">
+                        <h1 class="title">Discover Asia</h1>
+                       
+                            <p class="text">Asia beckons travelers with its colorful mosaic of diverse cultures, ancient traditions, and breathtaking landscapes. From the bustling bazaars and magnificent temples of Southeast Asia to the futuristic cities and serene countryside of the East, Asia offers a travel experience unlike any other.</p>
+                            <p class="text">The vast continent of Asia is home to a staggering variety of cultures and ethnicities. Experience the spiritual majesty of India's Taj Mahal, the tranquil temples of Thailand, or the vibrant heritage of Vietnam. Each country in Asia presents its own unique tapestry of customs, cuisine, and languages, inviting travelers to immerse themselves in a world of discovery.</p>
+                        
+                        <mat-divider></mat-divider>
+
+                    </div>
+                </header>
+                <section>Siia tulevad pildid linnadest</section>
+            </section>
+            <div class="footer" #footer>
+                <button mat-fab matTooltip="Nice" color="primary" class = "heartButton">
+                    <mat-icon>favorite</mat-icon>
+                </button>
+            </div>
         </mat-tab>
-        <mat-tab label="tabs">
-            Content 3
+        <mat-tab label="North America">
+            <section>
+                <header id="page-header">
+                    <div class="flex-container">
+                        <h1 class="title">Discover North America</h1>
+                        
+                            <p class="text">North America is a continent that combines boundless adventure with sprawling urban landscapes. From the rugged beauty of the Canadian wilderness to the pulsating energy of American cities and the cultural richness of Mexico, each destination offers its own unique slice of life.</p>
+                            <p class="text">The natural wonders of North America are as vast and varied as the continent itself. Witness the sheer majesty of the Grand Canyon, the mist-clad peaks of the Rocky Mountains, or the crystalline waters of the Great Lakes. Journey to Alaska for a glimpse of towering glaciers or head to Yellowstone National Park to see geothermal marvels and an abundance of wildlife.</p>
+                        
+                        <mat-divider></mat-divider>
+
+                    </div>
+                </header>
+                <section>Siia tulevad pildid linnadest</section>
+            </section>
+            <div class="footer" #footer>
+                <button mat-fab matTooltip="Nice" color="primary" class = "heartButton">
+                    <mat-icon>favorite</mat-icon>
+                </button>
+            </div>
         </mat-tab>
     </mat-tab-group>
 </main>  

@@ -32,7 +32,7 @@ import { HomeComponent } from './pages/home/home.component';
 import { MatCardModule } from '@angular/material/card';
 import { MatMenuModule } from '@angular/material/menu';
 import { DestinationsComponent } from './pages/destinations/destinations.component';
-
+import {MatDividerModule} from '@angular/material/divider'; 
 
 @NgModule({
   declarations: [
@@ -70,7 +70,8 @@ import { DestinationsComponent } from './pages/destinations/destinations.compone
     NgIf,
     CommonModule,
     MatTabLabel,
-    MatMenuModule
+    MatMenuModule,
+    MatDividerModule
   ],
   providers: [
     provideAnimationsAsync(),
