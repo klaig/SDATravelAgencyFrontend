@@ -5,6 +5,7 @@
 
 main {
     background-color: white;
+    margin-top: 3em;
 }
 
 mat-divider {
@@ -47,6 +48,7 @@ p {
 
 .city {
   position: relative; /* Needed for absolute positioning of the text */
+  overflow: hidden;
 }
 
 .city img {
@@ -54,6 +56,11 @@ p {
   height: 100%; /* Maintain aspect ratio */
   display: block; /* Remove any extra space beneath the image */
   object-fit: cover;
+  transition: transform 0.5s ease;
+}
+
+.city:hover img {
+  transform: scale(1.1); /* Zooms in the image to 110% of its original size */
 }
 
 .city-name {

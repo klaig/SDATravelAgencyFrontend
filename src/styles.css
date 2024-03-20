@@ -6,10 +6,10 @@ html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 
 /* .mat-mdc-tab-header { } */
-.mat-mdc-tab.mdc-tab { background-color: #7986CB; flex: 1;}
-.mat-mdc-tab.mdc-tab:hover { background-color: #5866b4; flex: 1; }
+    .mat-mdc-tab.mdc-tab {flex: 1;}
+    /* .mat-mdc-tab.mdc-tab:hover { background-color: #5866b4;} */
 /* .mat-mdc-tab-body.mat-mdc-tab-body-active {  } */
 
-.mat-mdc-tab.mdc-tab--active .mdc-tab__text-label { color: white; }
-.mat-mdc-tab .mdc-tab__text-label { color: white!important; }
+/* .mat-mdc-tab.mdc-tab--active .mdc-tab__text-label { color: white; }
+.mat-mdc-tab .mdc-tab__text-label { color: white!important; } */
 .mdc-tab-indicator .mdc-tab-indicator__content.mdc-tab-indicator__content--underline { border-top-width: 5px; }
