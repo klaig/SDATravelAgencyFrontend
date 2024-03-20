@@ -1,4 +1,4 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Tour } from '../models/tour.model';
 import { PurchaseData} from '../models/purchasedata.model';
@@ -15,6 +15,15 @@ export class ApiService {
 
   constructor(private http: HttpClient) { }
 
+  // This method returns the headers that will be used in HTTP requests to the API
+  private getAuthHeaders(): HttpHeaders {
+    const token = localStorage.getItem('JWT_TOKEN');
+    return new HttpHeaders({
+      'Content-Type': 'application/json',
+      'Authorization': `Bearer ${token}`
+    });
+  }
+
   // API calls will be made here
   /* The HttpClient service is injected into the constructor, which allows you to make HTTP requests to the API. */
   /* getSomeData() {
@@ -24,37 +33,44 @@ export class ApiService {
   // Admin api calls start
   // get request
   findAllPurchaseData() {
-    return this.http.get('http://localhost:8080/api/admin/tour/all');
+    const headers = this.getAuthHeaders();
+    return this.http.get('http://localhost:8080/api/admin/tour/all', { headers: headers });
   }
   
   // RequestBody post request
   createTour(tour: Tour) {
-    return this.http.post('http://localhost:8080/api/admin/tour/create', tour);
+    const headers = this.getAuthHeaders();
+    return this.http.post('http://localhost:8080/api/admin/tour/create', tour, { headers: headers });
   }
 
   // PathVariable, RequestBody put request
   updateTour(tourId: number, tour: Tour) {
-    return this.http.put('http://localhost:8080/api/admin/tours/${tourId}', tour);
+    const headers = this.getAuthHeaders();
+    return this.http.put('http://localhost:8080/api/admin/tours/${tourId}', tour, { headers: headers });
   }
 
   // PathVariable delete request
   deleteTour(tourId: number) {
-    return this.http.delete('http://localhost:8080/api/admin/tours/${tourId}');
+    const headers = this.getAuthHeaders();
+    return this.http.delete('http://localhost:8080/api/admin/tours/${tourId}', { headers: headers });
   }
 
   // RequestParam get request
   findAllByIsPurchased(isPurchased: boolean) {
-    return this.http.get('http://localhost:8080/api/admin/tour/bought?isPurchased=' + isPurchased);
+    const headers = this.getAuthHeaders();
+    return this.http.get('http://localhost:8080/api/admin/tour/bought?isPurchased=' + isPurchased, { headers: headers });
   }
 
   // returns purchased tours by userId
   findAllByUserId(userId: number) {
-    return this.http.get('http://localhost:8080/api/admin/tour/userId?userId='+ userId);
+    const headers = this.getAuthHeaders();
+    return this.http.get('http://localhost:8080/api/admin/tour/userId?userId='+ userId, { headers: headers });
   }
 
   // returns users who have bought tour
   findAllUsersByTour(tourId: number) {
-    return this.http.get('http://localhost:8080/api/admin/tour/users?userId='+ tourId);
+    const headers = this.getAuthHeaders();
+    return this.http.get('http://localhost:8080/api/admin/tour/users?userId='+ tourId, { headers: headers });
   }
 
 

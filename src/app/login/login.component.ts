@@ -21,8 +21,8 @@ export interface AuthResponse {
 })
 export class LoginComponent {
 
-  usernameOrEmail: string = 'kartul';
-  password: string = 'kartul';
+  usernameOrEmail: string = 'admin';
+  password: string = 'potato';
 
 
   constructor(private router: Router, private apiService: ApiService) {
@@ -38,7 +38,7 @@ export class LoginComponent {
       next: (data: AuthResponse) => {
           console.log(data);
           alert("Login Success");
-          localStorage.setItem('angular17token', data.token);
+          localStorage.setItem('JWT_TOKEN', data.token);
           this.router.navigateByUrl('/home');
       },
       error: (error) => {
@@ -47,6 +47,3 @@ export class LoginComponent {
     });
   }
 }
-// //alert("Login Success");
-// localStorage.setItem('angular17token', res.data.token)
-// this.router.navigateByUrl('/dashboard')

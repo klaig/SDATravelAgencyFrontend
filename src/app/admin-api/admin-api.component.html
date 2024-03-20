@@ -23,11 +23,11 @@
             <td>
                  <mat-form-field class="inputs">
                     <mat-label>Departure Date</mat-label>
-                    <input matInput [(ngModel)]="departureDate" [matDatepicker]="picker">
-                    <mat-datepicker-toggle matIconSuffix [for]="picker">
+                    <input matInput [(ngModel)]="departureDate" [matDatepicker]="departurePicker">
+                    <mat-datepicker-toggle matIconSuffix [for]="departurePicker">
                       <mat-icon matDatepickerToggleIcon>keyboard_arrow_down</mat-icon>
                     </mat-datepicker-toggle>
-                    <mat-datepicker #picker></mat-datepicker>
+                    <mat-datepicker #departurePicker></mat-datepicker>
                   </mat-form-field>                   
             </td>
         </tr>
@@ -35,11 +35,11 @@
             <td>
                 <mat-form-field class="inputs">
                     <mat-label>Return Date</mat-label>
-                    <input matInput [(ngModel)]="returnDate" [matDatepicker]="picker">
-                    <mat-datepicker-toggle matIconSuffix [for]="picker">
+                    <input matInput [(ngModel)]="returnDate" [matDatepicker]="returnPicker">
+                    <mat-datepicker-toggle matIconSuffix [for]="returnPicker">
                       <mat-icon matDatepickerToggleIcon>keyboard_arrow_down</mat-icon>
                     </mat-datepicker-toggle>
-                    <mat-datepicker #picker></mat-datepicker>
+                    <mat-datepicker #returnPicker></mat-datepicker>
                   </mat-form-field>
             </td>
         </tr>
@@ -47,7 +47,7 @@
             <td>
                 <app-destination-auto-complete [(destination)]="destination"></app-destination-auto-complete>
             </td>
-            
+        
         </tr>
         <tr>
             <td>

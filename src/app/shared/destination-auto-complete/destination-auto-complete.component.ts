@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { Component, EventEmitter, Input, OnChanges, OnInit, Output, SimpleChanges } from '@angular/core';
 import { FormBuilder } from '@angular/forms';
 import { Observable, map, startWith } from 'rxjs';
 
@@ -19,7 +19,7 @@ export const _filter = (opt: string[], value: string): string[] => {
   styleUrl: './destination-auto-complete.component.css'
 })
 export class DestinationAutoCompleteComponent implements OnInit{
-  @Input() destination: string = '';
+  @Input() destination: string = 'Bangkok';
   @Output() destinationChange = new EventEmitter<string>();
 
   cityForm = this._formBuilder.group({
@@ -57,9 +57,15 @@ export class DestinationAutoCompleteComponent implements OnInit{
     constructor(private _formBuilder: FormBuilder) { }
 
     ngOnInit() {
+      this.cityForm = this._formBuilder.group({
+        cityGroup: this.destination,
+      });
+
       this.cityGroupOptions = this.cityForm.get('cityGroup')!.valueChanges.pipe(
-        startWith(''),
-        map(value => this._filterGroup(value || '')),
+        map(value => {         
+          this.destinationChange.emit(value ?? '');
+          return this._filterGroup(value || '');
+        }),
       );
     }
 
@@ -73,7 +79,7 @@ export class DestinationAutoCompleteComponent implements OnInit{
       return this.cityGroups;
     }
 
-    onDestinationChange() {
-      this.destinationChange.emit(this.destination);
-    }
+    // onDestinationChange() {
+    //   this.destinationChange.emit(this.destination);
+    // }
 }

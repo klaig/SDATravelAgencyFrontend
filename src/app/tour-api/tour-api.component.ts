@@ -11,7 +11,7 @@ export class TourApiComponent implements OnInit{
 
   startValue: number = 50;
   endValue: number = 300;
-  destination: string = "Rome"; 
+  destination: string = 'Bangkok';
   userId: number = 1;
   tourId: number = 1;
   checked: boolean = false;

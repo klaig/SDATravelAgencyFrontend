@@ -8,12 +8,11 @@ import { Tour } from '../models/tour.model';
   styleUrl: './admin-api.component.css'
 })
 export class AdminApiComponent {
-
     adultPrice: number = 1500;
     childPrice: number = 700; 
     departureDate: string = "2024-05-01"; 
     returnDate: string = "2024-05-15"; 
-    destination: string = "BANGKOK"; 
+    destination: string = "Rome"; 
     availableSeats: number = 12; 
     purchaseDataId: number = 1; 
     userId: number = 1; 
@@ -54,7 +53,7 @@ export class AdminApiComponent {
     var days = time / (1000 * 3600 * 24);
 
     // initialize a tour object
-    var tour: Tour = {
+    const tour: Tour = {
       destination: this.destination.toUpperCase(),
       departureDate: this.departureDate,
       returnDate: this.returnDate,
@@ -98,6 +97,7 @@ export class AdminApiComponent {
     this.apiService.updateTour(this.tourId, tour).subscribe({
       next: (data) => {
         // Do something with the data
+        this.destination = tour.destination;
         console.log(data);
         this.updateJsonOutput(data);
       },

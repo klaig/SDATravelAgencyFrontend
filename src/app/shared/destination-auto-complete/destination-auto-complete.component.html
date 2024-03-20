@@ -1,19 +1,17 @@
 <form [formGroup]="cityForm">        
     <mat-form-field>
         <mat-label>Destination</mat-label>
-            <input matInput
-                [(ngModel)]="destination"
-                (ngModelChange)="onDestinationChange()"
-                formControlName="cityGroup"
-                [matAutocomplete]="autoGroup">
-            <mat-autocomplete #autoGroup="matAutocomplete">
-                @for (group of cityGroupOptions | async; track group) {
-                    <mat-optgroup [label]="group.country">
-                        @for (name of group.names; track name) {
-                            <mat-option [value]="name">{{name}}</mat-option>
-                        }
-                    </mat-optgroup>
-                }
-            </mat-autocomplete>
+        <input matInput
+               formControlName="cityGroup"
+               [matAutocomplete]="autoGroup">
+        <mat-autocomplete #autoGroup="matAutocomplete">
+            <ng-container *ngFor="let group of cityGroupOptions | async">
+                <mat-optgroup [label]="group.country">
+                    <ng-container *ngFor="let name of group.names">
+                        <mat-option [value]="name">{{name}}</mat-option>
+                    </ng-container>
+                </mat-optgroup>
+            </ng-container>
+        </mat-autocomplete>
     </mat-form-field> 
 </form>
