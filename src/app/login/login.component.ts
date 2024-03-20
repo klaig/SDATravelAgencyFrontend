@@ -1,11 +1,11 @@
-
-import { HttpClient } from '@angular/common/http';
-import { Component } from '@angular/core';
-import { FormsModule } from '@angular/forms';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { FormGroup, FormControl } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { Router } from '@angular/router';
 import { LoginDto } from '../models/logindto.model';
-import { ApiService } from '../services/api.service';
+import { AuthService } from '../services/auth.service';
+import { CommonModule, NgIf } from '@angular/common';
+import { SignUpDto } from '../models/signupdto.model';
 
 export interface AuthResponse {
   token: string;
@@ -14,27 +14,45 @@ export interface AuthResponse {
 
 @Component({
   selector: 'app-login',
-  standalone: true,
-  imports: [FormsModule, HttpClientModule],
   templateUrl: './login.component.html',
   styleUrl: './login.component.css'
 })
 export class LoginComponent {
+  // showSignInForm = true;
 
-  usernameOrEmail: string = 'admin';
-  password: string = 'potato';
+  // usernameOrEmail: string = 'admin';
+  // password: string = 'potato';
 
+  // newName: string = 'Martin Tamm';
+  // newUsername: string = 'Martin';
+  // newEmail: string = 'martinike12@gmail.com';
+  // newPassword: string = 'potato';
 
-  constructor(private router: Router, private apiService: ApiService) {
-  }
+  loginForm: FormGroup = new FormGroup({
+    usernameOrEmail: new FormControl(''),
+    password: new FormControl(''),
+  });
+
+  signUpForm: FormGroup = new FormGroup({
+    newName: new FormControl(''),
+    newUsername: new FormControl(''),
+    newEmail: new FormControl(''),
+    newPassword: new FormControl('')
+  });
+
+  constructor(private router: Router, private authService: AuthService) { }
+
+  // toggleForm() {
+  //   this.showSignInForm = !this.showSignInForm;
+  // }
 
   onLogin() {
-    var loginDto: LoginDto = {
-      usernameOrEmail: this.usernameOrEmail,
-      password: this.password
+    const loginDto: LoginDto = {
+      usernameOrEmail: this.loginForm.get('usernameOrEmail')?.value,
+      password: this.loginForm.get('password')?.value,
     }
 
-    this.apiService.authenticateUser(loginDto).subscribe({
+    this.authService.authenticateUser(loginDto).subscribe({
       next: (data: AuthResponse) => {
           console.log(data);
           alert("Login Success");
@@ -46,4 +64,26 @@ export class LoginComponent {
       }
     });
   }
+
+  onRegister() {
+    const signUpDto: SignUpDto = {
+      name: this.signUpForm.get('newName')?.value,
+      username: this.signUpForm.get('newUsername')?.value,
+      email: this.signUpForm.get('newEmail')?.value,
+      password: this.signUpForm.get('newPassword')?.value
+    }
+
+    this.authService.registerNewUser(signUpDto).subscribe({
+      next: (data) => {
+          console.log(data);
+          alert("Registration Success");
+      },
+      error: (error) => {
+          console.error(error);
+      }
+    });
+  }
+  @Input() error: string | null = null;
+
+  @Output() submitEM = new EventEmitter();
 }

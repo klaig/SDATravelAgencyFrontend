@@ -1,7 +1,7 @@
-import { NgModule, forwardRef } from '@angular/core';
+import { Input, NgModule, Output, forwardRef } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { ReactiveFormsModule } from '@angular/forms';
-import { AsyncPipe } from '@angular/common';
+import { AsyncPipe, CommonModule, NgIf } from '@angular/common';
 import { MatAutocompleteModule } from '@angular/material/autocomplete';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -21,16 +21,16 @@ import { MatInputModule } from '@angular/material/input';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatSliderModule } from '@angular/material/slider';
 import { MatCheckboxModule } from '@angular/material/checkbox'; 
-import { MatTabsModule } from '@angular/material/tabs';
+import { MatTabLabel, MatTabsModule } from '@angular/material/tabs';
 import { MatIconModule } from '@angular/material/icon';
 import { MatTooltipModule } from '@angular/material/tooltip';
 import { MatButtonModule } from '@angular/material/button';
 import { DestinationAutoCompleteComponent } from './shared/destination-auto-complete/destination-auto-complete.component';
 import { CustomNumberInputComponent } from './shared/custom-number-input/custom-number-input.component';
 import { LoginComponent } from './login/login.component';
-import { RegisterComponent } from './register/register.component';
 import { DashboardComponent } from './pages/dashboard/dashboard.component';
 import { HomeComponent } from './pages/home/home.component';
+import { MatCardModule } from '@angular/material/card';
 
 @NgModule({
   declarations: [
@@ -41,9 +41,9 @@ import { HomeComponent } from './pages/home/home.component';
     TourApiComponent,
     DestinationAutoCompleteComponent,
     CustomNumberInputComponent,
-    RegisterComponent,
     DashboardComponent,
-    HomeComponent
+    HomeComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,
@@ -62,9 +62,12 @@ import { HomeComponent } from './pages/home/home.component';
     MatTooltipModule, 
     MatIconModule,
     MatAutocompleteModule,
+    MatCardModule,
     AsyncPipe,
     ReactiveFormsModule,
-    LoginComponent
+    NgIf,
+    CommonModule,
+    MatTabLabel
   ],
   providers: [
     provideAnimationsAsync(),
