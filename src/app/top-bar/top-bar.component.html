@@ -18,19 +18,14 @@
 
     <!-- Navbar content -->
     <nav class="navbar">
-        <ul>
-            <li><a href="#home">Tours</a></li>
-            <li class="dropdown">
-                <button (click)="toggleDropdown()">Destinations</button>
-                <div *ngIf="dropdownOpen" class="dropdown-content">
-                    <a href="#link1">Cities</a>
-                    <a href="#link2">Countries</a>
-                    <a href="#link3">Continents</a>
-                </div>
-            </li>
-            <li><a href="#services">About</a></li>
-            <li><a href="#contact">Contact</a></li>
-        </ul>
-        <!-- Add other navigation links as needed -->
+        <button mat-button routerLink="/home/destinations">Home</button>
+        <button mat-button [matMenuTriggerFor]="menu">Tours</button>
+        <mat-menu #menu="matMenu">
+            <button mat-menu-item routerLink="/home/destinations">Item 1</button>
+            <button mat-menu-item routerLink="/home/destinations">Item 2</button>
+        </mat-menu>
+        <button mat-button routerLink="/home/destinations">Destinations</button>
+        <button mat-button routerLink="/home/destinations">About Us</button>
+        <button mat-button routerLink="/home/destinations">Contact Us</button>
     </nav>
 </div>

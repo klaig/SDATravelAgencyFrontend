@@ -1,11 +1,10 @@
 <body>
-    <main class="landing">
+    <main>
         <app-top-bar></app-top-bar>
-        <div class="test-space">
-            <h1>test space</h1>
-        </div>
+        <router-outlet />
     </main>
-    <mat-tab-group dynamicHeight>
+</body>
+    <!-- <mat-tab-group dynamicHeight>
         <mat-tab label="Tour API">
             <div class="tour-api">
                 <app-tour-api class="component"></app-tour-api>
@@ -26,8 +25,4 @@
         <button mat-fab matTooltip="Nice" color="primary" class = "heartButton">
             <mat-icon>favorite</mat-icon>
         </button>
-    </div>
-    
-</body>
-
-<!-- <router-outlet /> -->
+    </div> -->

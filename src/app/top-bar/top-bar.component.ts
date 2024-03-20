@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { ApiService } from '../services/api.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-top-bar',
@@ -15,7 +16,7 @@ export class TopBarComponent{
     console.log("Dropdown Open:", this.dropdownOpen);
   }
   
-  constructor(private apiService: ApiService) { }
+  constructor(private apiService: ApiService, private router: Router) { }
 
   doApiCall() {
     this.apiService.getAllTours().subscribe((data: any) => {

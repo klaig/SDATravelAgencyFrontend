@@ -28,9 +28,11 @@ import { MatButtonModule } from '@angular/material/button';
 import { DestinationAutoCompleteComponent } from './shared/destination-auto-complete/destination-auto-complete.component';
 import { CustomNumberInputComponent } from './shared/custom-number-input/custom-number-input.component';
 import { LoginComponent } from './login/login.component';
-import { DashboardComponent } from './pages/dashboard/dashboard.component';
 import { HomeComponent } from './pages/home/home.component';
 import { MatCardModule } from '@angular/material/card';
+import { MatMenuModule } from '@angular/material/menu';
+import { DestinationsComponent } from './pages/destinations/destinations.component';
+
 
 @NgModule({
   declarations: [
@@ -41,9 +43,9 @@ import { MatCardModule } from '@angular/material/card';
     TourApiComponent,
     DestinationAutoCompleteComponent,
     CustomNumberInputComponent,
-    DashboardComponent,
     HomeComponent,
-    LoginComponent
+    LoginComponent,
+    DestinationsComponent
   ],
   imports: [
     BrowserModule,
@@ -67,7 +69,8 @@ import { MatCardModule } from '@angular/material/card';
     ReactiveFormsModule,
     NgIf,
     CommonModule,
-    MatTabLabel
+    MatTabLabel,
+    MatMenuModule
   ],
   providers: [
     provideAnimationsAsync(),

@@ -1,10 +1,7 @@
 
 <mat-card>
   <mat-tab-group class="custom-group" animationDuration="0ms">
-    <mat-tab>
-      <ng-template class="label" mat-tab-label>
-        Sign In
-      </ng-template>
+    <mat-tab label="Sign In">
       <!-- Sign In form content here -->
       <mat-card-content class="fadeIn">
         <form [formGroup]="loginForm" (ngSubmit)="onLogin()">
@@ -33,10 +30,7 @@
         </form>
       </mat-card-content>
     </mat-tab>
-    <mat-tab>
-      <ng-template mat-tab-label>
-        Sign Up
-      </ng-template>
+    <mat-tab label="Sign Up">
       <!-- Sign Up form content here -->
       <mat-card-content class="fadeIn">
         <form [formGroup]="signUpForm" (ngSubmit)="onRegister()">

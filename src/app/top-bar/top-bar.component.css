@@ -38,13 +38,20 @@
     width: 100%;
     display: flex;
     justify-content: center;
-    background-color: #2195f375;
+    background-color: #2196F3;
     padding: 0 0; /* Add padding to the top and bottom of the navbar */
 }
 
 .navbar a {
     color: white;
     text-decoration: none;
+}
+
+
+.navbar button{
+    padding-left: 1em;
+    padding-right: 1em;
+
 }
 
 nav ul {

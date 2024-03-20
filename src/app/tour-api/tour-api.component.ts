@@ -5,7 +5,7 @@ import { formatDate } from '@angular/common';
 @Component({
   selector: 'app-tour-api',
   templateUrl: './tour-api.component.html',
-  styleUrl: './tour-api.component.css',
+  styleUrl: './tour-api.component.css'
 })
 export class TourApiComponent implements OnInit{
 
@@ -20,6 +20,7 @@ export class TourApiComponent implements OnInit{
   maxDate: string = "2024-03-21";
 
   constructor(private apiService: ApiService) { }
+
   
   ngOnInit() {
   }
@@ -51,6 +52,8 @@ export class TourApiComponent implements OnInit{
     });
     //gets data from the API call (getAllTours) in services/api.service.ts
   }
+
+
 
   findById() {
 
