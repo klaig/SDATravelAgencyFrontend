@@ -13,7 +13,7 @@ import { TourApiComponent } from './tour-api/tour-api.component';
 import { PurchasedataApiComponent } from './purchasedata-api/purchasedata-api.component';
 import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
-import { DateAdapter, provideNativeDateAdapter } from '@angular/material/core';
+import { DateAdapter, MatRippleModule, provideNativeDateAdapter } from '@angular/material/core';
 import { CustomDateAdapter } from './shared/custom-date-adapter';
 import { FormsModule, NG_VALUE_ACCESSOR } from '@angular/forms';
 import { MatFormFieldModule } from '@angular/material/form-field';
@@ -32,7 +32,13 @@ import { HomeComponent } from './pages/home/home.component';
 import { MatCardModule } from '@angular/material/card';
 import { MatMenuModule } from '@angular/material/menu';
 import { DestinationsComponent } from './pages/destinations/destinations.component';
-import {MatDividerModule} from '@angular/material/divider'; 
+import {MatDividerModule} from '@angular/material/divider';
+import { AboutUsComponent } from './pages/about-us/about-us.component';
+import { ContactUsComponent } from './pages/contact-us/contact-us.component';
+import { AdminDashboardComponent } from './pages/admin-dashboard/admin-dashboard.component';
+import { UserProfileComponent } from './pages/user-profile/user-profile.component';
+import { ToursComponent } from './pages/tours/tours.component'; 
+
 
 @NgModule({
   declarations: [
@@ -45,7 +51,12 @@ import {MatDividerModule} from '@angular/material/divider';
     CustomNumberInputComponent,
     HomeComponent,
     LoginComponent,
-    DestinationsComponent
+    DestinationsComponent,
+    AboutUsComponent,
+    ContactUsComponent,
+    AdminDashboardComponent,
+    UserProfileComponent,
+    ToursComponent
   ],
   imports: [
     BrowserModule,
@@ -71,7 +82,8 @@ import {MatDividerModule} from '@angular/material/divider';
     CommonModule,
     MatTabLabel,
     MatMenuModule,
-    MatDividerModule
+    MatDividerModule,
+    MatRippleModule
   ],
   providers: [
     provideAnimationsAsync(),

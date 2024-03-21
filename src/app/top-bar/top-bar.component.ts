@@ -9,14 +9,12 @@ import { Router } from '@angular/router';
 })
 export class TopBarComponent{
 
-  dropdownOpen = false;
-
-  toggleDropdown() {
-    this.dropdownOpen = !this.dropdownOpen;
-    console.log("Dropdown Open:", this.dropdownOpen);
-  }
-  
   constructor(private apiService: ApiService, private router: Router) { }
+
+  logout() {
+    localStorage.removeItem('JWT_TOKEN');
+    this.router.navigate(['/login']);
+  }
 
   doApiCall() {
     this.apiService.getAllTours().subscribe((data: any) => {

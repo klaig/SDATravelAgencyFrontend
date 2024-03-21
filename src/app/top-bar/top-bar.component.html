@@ -4,6 +4,7 @@
         <!-- Add content here, like logo, search bar, user info -->
         <div class="header-info-left">
             <a>+372 555 55555</a>
+            <button mat-button (click)="logout()">Logout</button>
         </div>
         <div class="header-info-center">
             <img src="assets/images/image.png" alt="SDA Travel Agency">
@@ -18,7 +19,7 @@
 
     <!-- Navbar content -->
     <nav class="navbar" color="primary" backgroundColor="primary">
-        <button mat-button routerLink="/home/destinations">Home</button>
+        <button mat-button routerLink="/home">Home</button>
         <button mat-button [matMenuTriggerFor]="menu">Tours</button>
         <mat-menu #menu="matMenu">
             <button mat-menu-item routerLink="/home/destinations">Item 1</button>
