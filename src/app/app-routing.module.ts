@@ -14,12 +14,12 @@ const routes: Routes = [
     children: [
       { path: '', component: HomeComponent },
       { path: 'destinations', component: DestinationsComponent },
-      { path: 'login', component: LoginComponent },
       { path: 'user', component: UserProfileComponent },
       { path: 'admin', component: AdminDashboardComponent },
       // ... other routes ...
     ]
   },
+  { path: 'login', component: LoginComponent },
   // Redirect any other URL to HomeComponent
   {
     path: '**',

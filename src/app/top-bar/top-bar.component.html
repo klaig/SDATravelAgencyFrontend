@@ -7,7 +7,7 @@
             <button mat-button *ngIf="isLoggedIn" (click)="logout()">Logout</button>
             <button mat-button *ngIf="!isLoggedIn" routerLink="/login">Login</button>
             <button mat-button *ngIf="isAdmin" routerLink="/admin">Admin Dashboard</button>
-            <button mat-button *ngIf="isUser" routerLink="/user">My Profile</button>
+            <button mat-button *ngIf="isLoggedIn && isUser" routerLink="/user">My Profile</button>
         </div>
         <div class="header-info-center">
             <img src="assets/images/image.png" alt="SDA Travel Agency">
