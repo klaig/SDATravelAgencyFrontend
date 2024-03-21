@@ -1,0 +1,28 @@
+nav {
+    background-color: #c93838; /* Fallback color */
+    background-image: url(/assets/images/background.jpg);
+}
+
+div {
+   /* stretch */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+
+.heartButton {
+    margin-right: 4em;
+}
+
+.footer {
+    width: 100%;
+    background-color: #08243b;
+    color: white;
+    padding: 20px 0 20px 0;
+    text-align: left;
+    min-height: 50px;
+    display: flex;
+    align-items: stretch;
+    justify-content: right;
+}

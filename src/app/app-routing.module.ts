@@ -3,25 +3,28 @@ import { RouterModule, Routes } from '@angular/router';
 import { LoginComponent } from './login/login.component';
 import { HomeComponent } from './pages/home/home.component';
 import { DestinationsComponent } from './pages/destinations/destinations.component';
+import { UserProfileComponent } from './pages/user-profile/user-profile.component';
+import { AdminDashboardComponent } from './pages/admin-dashboard/admin-dashboard.component';
+import { LayoutComponent } from './layout/layout.component';
 
 const routes: Routes = [
   {
-    path: '', redirectTo: 'login', pathMatch: 'full'
-  },
-  {
-    path: 'login',
-    component:LoginComponent
-  },
-  {
-    path: 'home',
-    component:HomeComponent,
+    path: '',
+    component: LayoutComponent,
     children: [
-      {
-        path:'destinations',
-        component: DestinationsComponent
-      }
+      { path: '', component: HomeComponent },
+      { path: 'destinations', component: DestinationsComponent },
+      { path: 'login', component: LoginComponent },
+      { path: 'user', component: UserProfileComponent },
+      { path: 'admin', component: AdminDashboardComponent },
+      // ... other routes ...
     ]
   },
+  // Redirect any other URL to HomeComponent
+  {
+    path: '**',
+    redirectTo: ''
+  }
 ];
 
 @NgModule({

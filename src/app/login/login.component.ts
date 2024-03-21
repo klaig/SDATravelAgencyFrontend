@@ -10,6 +10,10 @@ import { SignUpDto } from '../models/signupdto.model';
 export interface AuthResponse {
   token: string;
   type: string;
+  username: string;
+  email: string;
+  name: string;
+  role: string;
 }
 
 @Component({
@@ -57,6 +61,10 @@ export class LoginComponent {
           console.log(data);
           alert("Login Success");
           localStorage.setItem('JWT_TOKEN', data.token);
+          localStorage.setItem('USERNAME', data.username);
+          localStorage.setItem('EMAIL', data.email);
+          localStorage.setItem('NAME', data.name);
+          localStorage.setItem('ROLE', data.role);
           this.router.navigateByUrl('/home');
       },
       error: (error) => {

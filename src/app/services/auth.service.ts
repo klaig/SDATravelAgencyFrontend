@@ -19,4 +19,6 @@ export class AuthService {
   registerNewUser(SignUpDto: SignUpDto) {
     return this.http.post('http://localhost:8080/api/auth/signup', SignUpDto);
   }
+
+
 }

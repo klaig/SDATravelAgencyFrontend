@@ -37,7 +37,8 @@ import { AboutUsComponent } from './pages/about-us/about-us.component';
 import { ContactUsComponent } from './pages/contact-us/contact-us.component';
 import { AdminDashboardComponent } from './pages/admin-dashboard/admin-dashboard.component';
 import { UserProfileComponent } from './pages/user-profile/user-profile.component';
-import { ToursComponent } from './pages/tours/tours.component'; 
+import { ToursComponent } from './pages/tours/tours.component';
+import { LayoutComponent } from './layout/layout.component'; 
 
 
 @NgModule({
@@ -56,7 +57,8 @@ import { ToursComponent } from './pages/tours/tours.component';
     ContactUsComponent,
     AdminDashboardComponent,
     UserProfileComponent,
-    ToursComponent
+    ToursComponent,
+    LayoutComponent
   ],
   imports: [
     BrowserModule,
