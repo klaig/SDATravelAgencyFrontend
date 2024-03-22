@@ -1,0 +1,42 @@
+
+<!-- <section class="searchForm">
+<app-destination-auto-complete [(destination)]="selectedDestination" class="destination"></app-destination-auto-complete>
+<button mat-raised-button color="primary" type="submit" (click)="onSearch()" class="searchButton">Search</button>
+</section>
+<div *ngIf="tours.length > 0" class="tours-section">
+    <h2>Tours in {{ selectedDestination }}</h2>
+    <div class="tours-container">
+      <mat-card *ngFor="let tour of tours" class="tour-card">
+        <mat-card-header>
+          <mat-card-title>{{ tour.destination }}</mat-card-title>
+          <mat-card-subtitle>Starting from: {{ tour.childPrice | currency }} per person</mat-card-subtitle>
+        </mat-card-header>
+        <img mat-card-image [src]="'/assets/images/' + tour.destination + '.jpg'" alt="{{tour.destination}}">
+        <mat-card-content>
+            <p></p>
+          <p>Tour lasts for {{ tour.length}} days</p>
+          <p>We depart on {{ tour.departureDate }}</p>
+        </mat-card-content>
+      </mat-card>
+    </div>
+  </div>
+  
+   -->
+   <section class="promoted-tours">
+    <h1>Promoted tours</h1>
+   
+   <ngb-carousel *ngIf="tourGroups.length > 0">
+    <ng-template ngbSlide *ngFor="let group of tourGroups">
+      <div class="tour-group">
+        <div *ngFor="let tour of group" class="tour-card">
+          <img [src]="'/assets/images/' + tour.destination + '.jpg'" alt="Image of {{ tour.destination }}" class="tour-image">
+          <div class="tour-info">
+            <h3>{{ tour.destination }}</h3>
+            <h4 class="description">description</h4>
+          </div>
+        </div>
+      </div>
+    </ng-template>
+  </ngb-carousel>
+</section> 
+  

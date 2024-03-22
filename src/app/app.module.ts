@@ -42,6 +42,7 @@ import { LayoutComponent } from './layout/layout.component';
 import { BoughtTourDialogComponent } from './shared/bought-tour-dialog/bought-tour-dialog.component';
 import {MatDialogModule} from '@angular/material/dialog'; 
 import { MatSnackBarModule } from '@angular/material/snack-bar';
+import { NgbCarouselModule, NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 @NgModule({
   declarations: [
@@ -90,7 +91,9 @@ import { MatSnackBarModule } from '@angular/material/snack-bar';
     MatDividerModule,
     MatRippleModule,
     MatDialogModule,
-    MatSnackBarModule
+    MatSnackBarModule,
+    NgbCarouselModule,
+    NgbModule
   ],
   providers: [
     provideAnimationsAsync(),

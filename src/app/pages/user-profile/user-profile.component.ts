@@ -4,7 +4,6 @@ import { ApiService } from '../../services/api.service';
 import { MatDialog } from '@angular/material/dialog';
 import { BoughtTourDialogComponent } from '../../shared/bought-tour-dialog/bought-tour-dialog.component';
 import { PurchaseData } from '../../models/purchasedata.model';
-import { MatSnackBar } from '@angular/material/snack-bar';
 
 
 @Component({

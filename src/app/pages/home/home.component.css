@@ -1,0 +1,82 @@
+.tour-card {
+    position: relative;
+    width: calc(25% - 20px); /* Adjust width if you want different spacing or more/less cards */
+    margin: 0 10px; /* Spacing between cards */
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1); /* Optional: adds shadow for depth */
+    overflow: hidden; /* Ensures that oversized images are trimmed */
+  }
+  
+  .tour-card img {
+    width: 100%; /* Ensures the image takes up the container width */
+    height: 200px; /* Fixed height for all images */
+    object-fit: cover; /* Ensures the image covers the area */
+    display: block;
+  }
+  
+  .tour-card h3 {
+    margin: 0; /* Removes default margin from headings */
+    padding: 8px; /* Adds some padding inside the card */
+    background-color: rgba(255, 255, 255, 0.486); /* Semi-transparent white background */
+    position: absolute; /* Positions the caption at the bottom of the image */
+    bottom: 0;
+    left: 0;
+    width: 100%; /* Ensures the caption spans the width of the image */
+  }
+  
+  .tour-card .description {
+    position: absolute; /* Position the description absolutely within the card */
+
+    bottom: 0em;
+    left: 0;
+    width: 100%;
+    padding: 0px; /* Padding inside the description container */
+     /* Dark background for the text to stand out */
+    color: #000000; /* White text color */
+    text-align: center;
+    display: block;
+  }
+  .city-gallery {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around; /* or 'space-between' depending on desired spacing */
+    align-items: center;
+    margin: 0 auto;
+  }
+  
+  .city {
+    flex-basis: calc(33.3% - 20px); /* Adjust the percentage based on the number of items per row */
+    margin: 10px; /* Adjust spacing between items */
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2); /* optional: adds shadow for depth */
+  }
+  
+  .city img {
+    max-height: 200px; /* Maximum height for all images */
+    width: auto; /* maintain aspect ratio */
+    object-fit: cover; /* cover the figure area, potentially cropping the image */
+  }
+
+  @media (max-width: 768px) {
+    .city {
+      flex-basis: calc(50% - 20px); /* show 2 items per row on medium screens */
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .city {
+      flex-basis: 100%; /* stack them on top of each other on small screens */
+    }
+  }
+
+  .tour-group {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around; /* or 'space-between' depending on desired spacing */
+    align-items: center;
+    margin: 0 auto;
+  }
+
+  .promoted-tours {
+    margin-top: 3em;
+    border-top: black 1px solid;
+    border-bottom: black 1px solid;
+  }
