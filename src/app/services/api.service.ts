@@ -113,8 +113,8 @@ export class ApiService {
   }
 
   // returns tours bought by specific userId
-  findAllBoughtTours(userId: number) {
-    return this.http.get('http://localhost:8080/api/v1/mytours?userId=' + userId);
+  findAllBoughtTours(userId: number): Observable<Tour[]> {
+    return this.http.get<Tour[]>('http://localhost:8080/api/v1/mytours?userId=' + userId);
   }
 
   // Tour api calls end

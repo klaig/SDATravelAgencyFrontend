@@ -10,14 +10,9 @@
             <td>
                  <app-custom-number-input label="Price for Adults" [(value)]="adultPrice"></app-custom-number-input>
             </td>
-        </tr>
-        <tr>
             <td>
                 <app-custom-number-input label="Price for Children" [(value)]="childPrice"></app-custom-number-input>
             </td>
-            <td><label class="childprice-label" for="childprice">childprice</label></td>
-            <td><input class="childprice-input" type="number" id="childprice" value="50"/></td>
-            <td class="spacer"></td>
         </tr>
         <tr>
             <td>
@@ -30,8 +25,6 @@
                     <mat-datepicker #departurePicker></mat-datepicker>
                   </mat-form-field>                   
             </td>
-        </tr>
-        <tr>
             <td>
                 <mat-form-field class="inputs">
                     <mat-label>Return Date</mat-label>
@@ -47,30 +40,23 @@
             <td>
                 <app-destination-auto-complete [(destination)]="destination"></app-destination-auto-complete>
             </td>
-        
-        </tr>
-        <tr>
             <td>
                 <app-custom-number-input label="Available Seats" [(value)]="availableSeats"></app-custom-number-input>
             </td>
-            
         </tr>
         <tr>
             <td>
                 <app-custom-number-input label="PurchaseData Id" [(value)]="purchaseDataId"></app-custom-number-input>
             </td>
-        </tr>
-        <tr>
             <td>
                 <app-custom-number-input label="User Id" [(value)]="userId"></app-custom-number-input>
             </td>
         </tr>
+
         <tr>
             <td>
-                <app-custom-number-input label="Tour Id" [(value)]="tourId"></app-custom-number-input>>
+                <app-custom-number-input label="Tour Id" [(value)]="tourId"></app-custom-number-input>
             </td>
-        </tr>
-        <tr>
             <td>
                 <mat-checkbox matInput [(ngModel)]="checked" name="checked">Promoted</mat-checkbox>
             </td>

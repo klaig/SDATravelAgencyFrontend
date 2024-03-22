@@ -14,6 +14,7 @@ export interface AuthResponse {
   email: string;
   name: string;
   role: string;
+  id: number;
 }
 
 @Component({
@@ -65,6 +66,7 @@ export class LoginComponent {
           localStorage.setItem('EMAIL', data.email);
           localStorage.setItem('NAME', data.name);
           localStorage.setItem('ROLE', data.role);
+          localStorage.setItem('ID', data.id.toString());
           this.router.navigateByUrl('/home');
       },
       error: (error) => {

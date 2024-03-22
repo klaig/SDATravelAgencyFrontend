@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
-import { ApiService } from '../services/api.service';
-import { PurchaseData } from '../models/purchasedata.model';
+import { ApiService } from '../api.service';
+import { PurchaseData } from '../../models/purchasedata.model';
 
 @Component({
   selector: 'app-purchasedata-api',

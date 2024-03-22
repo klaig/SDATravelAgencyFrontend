@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
-import { ApiService } from '../services/api.service';
-import { Tour } from '../models/tour.model';
+import { ApiService } from '../api.service';
+import { Tour } from '../../models/tour.model';
 
 @Component({
   selector: 'app-admin-api',

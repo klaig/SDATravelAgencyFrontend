@@ -1,0 +1,28 @@
+body {
+    margin: 4em 4em 4em 4em;
+}
+
+mat-card {
+    max-width: 400px; /* Adjust this value as per your content */
+    margin-bottom: 3em;
+  }
+
+  #page-header, .city-gallery {
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Centers content horizontally */
+    width: 100%;
+  }
+  
+  .flex-container, .gallery-header {
+    width: 100%; /* Use 100% width of their container */
+    text-align: center; /* Centers the text */
+  }
+
+  .grid-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); /* Adjust as needed */
+    gap: 20px;
+    width: 80%; /* Adjust the width as per your requirement */
+    margin: auto; /* Center the grid */
+  }
