@@ -2,10 +2,10 @@ import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { FormGroup, FormControl } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { Router } from '@angular/router';
-import { LoginDto } from '../models/logindto.model';
-import { AuthService } from '../services/auth.service';
+import { LoginDto } from '../../models/logindto.model';
+import { AuthService } from '../../services/auth.service';
 import { CommonModule, NgIf } from '@angular/common';
-import { SignUpDto } from '../models/signupdto.model';
+import { SignUpDto } from '../../models/signupdto.model';
 
 export interface AuthResponse {
   token: string;

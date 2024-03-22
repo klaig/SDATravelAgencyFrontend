@@ -5,7 +5,7 @@ import { AsyncPipe, CommonModule, NgIf } from '@angular/common';
 import { MatAutocompleteModule } from '@angular/material/autocomplete';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { TopBarComponent } from './top-bar/top-bar.component';
+import { TopBarComponent } from './shared/top-bar/top-bar.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HttpClientModule } from '@angular/common/http';
 import { AdminApiComponent } from './admin-api/admin-api.component';
@@ -27,7 +27,7 @@ import { MatTooltipModule } from '@angular/material/tooltip';
 import { MatButtonModule } from '@angular/material/button';
 import { DestinationAutoCompleteComponent } from './shared/destination-auto-complete/destination-auto-complete.component';
 import { CustomNumberInputComponent } from './shared/custom-number-input/custom-number-input.component';
-import { LoginComponent } from './login/login.component';
+import { LoginComponent } from './pages/login/login.component';
 import { HomeComponent } from './pages/home/home.component';
 import { MatCardModule } from '@angular/material/card';
 import { MatMenuModule } from '@angular/material/menu';
@@ -38,7 +38,7 @@ import { ContactUsComponent } from './pages/contact-us/contact-us.component';
 import { AdminDashboardComponent } from './pages/admin-dashboard/admin-dashboard.component';
 import { UserProfileComponent } from './pages/user-profile/user-profile.component';
 import { ToursComponent } from './pages/tours/tours.component';
-import { LayoutComponent } from './layout/layout.component'; 
+import { LayoutComponent } from './layout/layout.component';
 
 
 @NgModule({
