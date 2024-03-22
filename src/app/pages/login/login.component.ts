@@ -6,16 +6,7 @@ import { LoginDto } from '../../models/logindto.model';
 import { AuthService } from '../../services/auth.service';
 import { CommonModule, NgIf } from '@angular/common';
 import { SignUpDto } from '../../models/signupdto.model';
-
-export interface AuthResponse {
-  token: string;
-  type: string;
-  username: string;
-  email: string;
-  name: string;
-  role: string;
-  id: number;
-}
+import { AuthResponse } from '../../models/auth-response.model';
 
 @Component({
   selector: 'app-login',

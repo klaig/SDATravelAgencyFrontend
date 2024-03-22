@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { AuthResponse } from '../pages/login/login.component';
+import { AuthResponse } from '../models/auth-response.model';
 import { Observable } from 'rxjs';
 import { LoginDto } from '../models/logindto.model';
 import { SignUpDto } from '../models/signupdto.model';

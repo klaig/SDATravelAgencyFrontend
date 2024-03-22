@@ -5,7 +5,7 @@ import { PurchaseData} from '../models/purchasedata.model';
 import { LoginDto } from '../models/logindto.model';
 import { SignUpDto } from '../models/signupdto.model';
 import { Observable } from 'rxjs';
-import { AuthResponse } from '../pages/login/login.component';
+import { AuthResponse } from '../models/auth-response.model';
 
 @Injectable({
   providedIn: 'root'

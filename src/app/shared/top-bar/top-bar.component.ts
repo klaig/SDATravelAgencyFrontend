@@ -15,6 +15,8 @@ export class TopBarComponent{
   constructor(private apiService: ApiService, private router: Router) {
     this.checkUserRole();
     this.isLoggedIn = !!localStorage.getItem('ROLE');
+    // !! converts the value to a boolean, in this case
+    // if the value is null or undefined, it will be false
   }
 
   checkUserRole() {

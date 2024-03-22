@@ -14,6 +14,8 @@ export class UserProfileComponent implements OnInit{
   name!: string;
   email!: string;
   username!: string;
+  // ! means that the variable will be initialized later and you are sure
+  // it wont be used before that time
 
   constructor(private apiService: ApiService) {}
 
