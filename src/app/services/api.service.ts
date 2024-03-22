@@ -6,6 +6,7 @@ import { LoginDto } from '../models/logindto.model';
 import { SignUpDto } from '../models/signupdto.model';
 import { Observable } from 'rxjs';
 import { AuthResponse } from '../models/auth-response.model';
+import { User } from '../models/user.model';
 
 @Injectable({
   providedIn: 'root'
@@ -32,9 +33,9 @@ export class ApiService {
 
   // Admin api calls start
   // get request
-  findAllPurchaseData() {
+  findAllPurchaseData(): Observable<PurchaseData[]> {
     const headers = this.getAuthHeaders();
-    return this.http.get('http://localhost:8080/api/admin/tour/all', { headers: headers });
+    return this.http.get<PurchaseData[]>('http://localhost:8080/api/admin/tour/all', { headers: headers });
   }
   
   // RequestBody post request
@@ -46,31 +47,27 @@ export class ApiService {
   // PathVariable, RequestBody put request
   updateTour(tourId: number, tour: Tour) {
     const headers = this.getAuthHeaders();
-    return this.http.put('http://localhost:8080/api/admin/tours/${tourId}', tour, { headers: headers });
+    return this.http.put(`http://localhost:8080/api/admin/tours/${tourId}`, tour, { headers: headers });
   }
 
   // PathVariable delete request
   deleteTour(tourId: number) {
     const headers = this.getAuthHeaders();
-    return this.http.delete('http://localhost:8080/api/admin/tours/${tourId}', { headers: headers });
+    return this.http.delete(`http://localhost:8080/api/admin/tours/${tourId}`, { headers: headers });
   }
 
   // RequestParam get request
-  findAllByIsPurchased(isPurchased: boolean) {
+  findAllByIsPurchased(isPurchased: boolean): Observable<PurchaseData[]> {
     const headers = this.getAuthHeaders();
-    return this.http.get('http://localhost:8080/api/admin/tour/bought?isPurchased=' + isPurchased, { headers: headers });
+    return this.http.get<PurchaseData[]>('http://localhost:8080/api/admin/tour/bought?isPurchased=' + isPurchased, { headers: headers });
   }
 
-  // returns purchased tours by userId
-  findAllByUserId(userId: number) {
-    const headers = this.getAuthHeaders();
-    return this.http.get('http://localhost:8080/api/admin/tour/userId?userId='+ userId, { headers: headers });
-  }
+  
 
   // returns users who have bought tour
-  findAllUsersByTour(tourId: number) {
+  findAllUsersByTour(tourId: number): Observable<User[]>{
     const headers = this.getAuthHeaders();
-    return this.http.get('http://localhost:8080/api/admin/tour/users?userId='+ tourId, { headers: headers });
+    return this.http.get<User[]>('http://localhost:8080/api/admin/tour/users?tourId='+ tourId, { headers: headers });
   }
 
 
@@ -78,38 +75,38 @@ export class ApiService {
   // Admin api calls end
   // Tour api calls start
   // returns all tours
-  getAllTours() {
-    return this.http.get('http://localhost:8080/api/v1/tours');
+  getAllTours(): Observable<Tour[]> {
+    return this.http.get<Tour[]>('http://localhost:8080/api/v1/tours');
   }
 
   // returns tour by id
-  findById(tourId: number) {
-    return this.http.get(`http://localhost:8080/api/v1/tour?tourId=` + tourId);
+  findById(tourId: number): Observable<Tour> {
+    return this.http.get<Tour>(`http://localhost:8080/api/v1/tour?tourId=` + tourId);
   }
 
   // returns tours by destination
-  findAllByDestination(destination: string) {
-    return this.http.get('http://localhost:8080/api/v1/tours/city?city=' + destination);
+  findAllByDestination(destination: string): Observable<Tour[]> {
+    return this.http.get<Tour[]>('http://localhost:8080/api/v1/tours/city?city=' + destination);
   }
 
   // returns tours by departure date
-  findAllByDepartureDateBetween(minDate: string, maxDate: string) {
-    return this.http.get('http://localhost:8080/api/v1/tours/dates?minDate=' + minDate + '&maxDate=' + maxDate);
+  findAllByDepartureDateBetween(minDate: string, maxDate: string): Observable<Tour[]> {
+    return this.http.get<Tour[]>('http://localhost:8080/api/v1/tours/dates?minDate=' + minDate + '&maxDate=' + maxDate);
   }
 
   // returns tours by length
-  findAllByLength(days: number) {
-    return this.http.get('http://localhost:8080/api/v1/tours/length?days=' + days);
+  findAllByLength(days: number): Observable<Tour[]> {
+    return this.http.get<Tour[]>('http://localhost:8080/api/v1/tours/length?days=' + days);
   }
 
   // returns tours by price
-  findAllByAdultPriceBetween(minPrice: number, maxPrice: number) {
-    return this.http.get('http://localhost:8080/api/v1/tours/price?min=' + minPrice + '&max=' + maxPrice);
+  findAllByAdultPriceBetween(minPrice: number, maxPrice: number): Observable<Tour[]> {
+    return this.http.get<Tour[]>('http://localhost:8080/api/v1/tours/price?min=' + minPrice + '&max=' + maxPrice);
   }
 
   // returns tours by promotion
-  findAllByPromoted(isPromoted: boolean) {
-    return this.http.get('http://localhost:8080/api/v1/tours/promoted?promoted=' + isPromoted);
+  findAllByPromoted(isPromoted: boolean): Observable<Tour[]> {
+    return this.http.get<Tour[]>('http://localhost:8080/api/v1/tours/promoted?promoted=' + isPromoted);
   }
 
   // returns tours bought by specific userId
@@ -124,12 +121,18 @@ export class ApiService {
     return this.http.post('http://localhost:8080/api/v1/tour/purchase', purchaseData);
   }
 
-  calculateTotal(purchaseDataId: number, tourId: number) {
-    return this.http.get('http://localhost:8080/api/v1/tour/price?tourId=' + purchaseDataId +'&purchaseDataId=' + tourId);
+  calculateTotal(purchaseDataId: number): Observable<number> {
+    return this.http.get<number>('http://localhost:8080/api/v1/tour/price?purchaseDataId=' + purchaseDataId);
   }
 
   finalizePurchase(purchaseDataId: number) {
     return this.http.get('http://localhost:8080/api/v1/tour/purchase?purchaseDataId=' + purchaseDataId );
+  }
+
+  // returns purchase data by userId
+  findAllByUserId(userId: number): Observable<PurchaseData[]>{
+    const headers = this.getAuthHeaders();
+    return this.http.get<PurchaseData[]>('http://localhost:8080/api/v1/tour/userId?userId='+ userId, { headers: headers });
   }
 
   // PurchaseData api calls end

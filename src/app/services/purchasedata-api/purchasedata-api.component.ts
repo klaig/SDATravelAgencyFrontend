@@ -56,7 +56,7 @@ export class PurchasedataApiComponent {
 
   calculateTotal() { 
     // calling API
-    this.apiService.calculateTotal(this.purchasedataId, this.tourId).subscribe({
+    this.apiService.calculateTotal(this.purchasedataId).subscribe({
       next: (data) => {
         // Do something with the data
         console.log(data);

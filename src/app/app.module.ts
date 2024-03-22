@@ -39,7 +39,9 @@ import { AdminDashboardComponent } from './pages/admin-dashboard/admin-dashboard
 import { UserProfileComponent } from './pages/user-profile/user-profile.component';
 import { ToursComponent } from './pages/tours/tours.component';
 import { LayoutComponent } from './layout/layout.component';
-
+import { BoughtTourDialogComponent } from './shared/bought-tour-dialog/bought-tour-dialog.component';
+import {MatDialogModule} from '@angular/material/dialog'; 
+import { MatSnackBarModule } from '@angular/material/snack-bar';
 
 @NgModule({
   declarations: [
@@ -58,7 +60,8 @@ import { LayoutComponent } from './layout/layout.component';
     AdminDashboardComponent,
     UserProfileComponent,
     ToursComponent,
-    LayoutComponent
+    LayoutComponent,
+    BoughtTourDialogComponent
   ],
   imports: [
     BrowserModule,
@@ -85,7 +88,9 @@ import { LayoutComponent } from './layout/layout.component';
     MatTabLabel,
     MatMenuModule,
     MatDividerModule,
-    MatRippleModule
+    MatRippleModule,
+    MatDialogModule,
+    MatSnackBarModule
   ],
   providers: [
     provideAnimationsAsync(),

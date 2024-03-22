@@ -22,11 +22,12 @@
                 <h2>Explore Your Bookings</h2>
             </header>
             <div class="grid-container">
-                <div *ngFor="let tour of boughtTours" class="grid-item">
-                  <h3>{{ tour.destination }}</h3>
-                  <!-- Add more tour details here -->
+                <div *ngFor="let tour of boughtTours" class="city" (click)="openDialog(tour)">
+                    <img [src]="'/assets/images/' + tour.destination + '.jpg'" alt="{{tour.destination}}">
+                    <h2 class="city-name">{{tour.destination}}</h2>
+                    <!-- TODO: <h3 class="country-name">Italy</h3> -->
+
                 </div>
               </div>
-              
-    </section>
+        </section>
 </body>

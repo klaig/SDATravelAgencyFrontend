@@ -54,6 +54,7 @@ export class AdminApiComponent {
 
     // initialize a tour object
     const tour: Tour = {
+      id: 0,
       destination: this.destination.toUpperCase(),
       departureDate: this.departureDate,
       returnDate: this.returnDate,
@@ -84,6 +85,7 @@ export class AdminApiComponent {
 
     // initialize a tour object
     var tour: Tour = {
+      id: 0,
       destination: this.destination.toUpperCase(),
       departureDate: this.departureDate,
       returnDate: this.returnDate,

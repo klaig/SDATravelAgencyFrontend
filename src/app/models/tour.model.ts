@@ -1,4 +1,5 @@
 export interface Tour {
+    id: number;
     destination: string;
     departureDate: string;
     length: number;
