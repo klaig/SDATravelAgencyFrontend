@@ -42,7 +42,9 @@
               <p class="tour-length">{{tour.length}} days</p>
               <p *ngIf="hasDeparted(tour.departureDate)" class="tour-departed">Already Departed</p>
               <p *ngIf="!hasDeparted(tour.departureDate)" class="tour-departure">Departs: {{tour.departureDate | date:'mediumDate'}}</p>
+              <div class="tour-buttons">
               <button *ngIf="!hasDeparted(tour.departureDate)" mat-raised-button color="primary" (click)="openDialog(tour)" class="book-now">Book Now</button>
+            </div>
             </div>
           </div>
         </div>

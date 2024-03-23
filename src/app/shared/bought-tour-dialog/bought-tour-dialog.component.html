@@ -2,13 +2,13 @@
 <div class="content">
 
 <h2>{{data.tour.destination}}</h2>
-<p>From: {{data.tour.departureDate }} To: {{data.tour.returnDate}}</p>
+<p>From: {{data.tour.departureDate | date:'mediumDate' }} To: {{data.tour.returnDate | date:'mediumDate'}}</p>
 <p>Length: {{data.tour.length}} days</p>
-<p>Price for adults: {{data.tour.adultPrice }}eur</p>
-<p>Price for children: {{data.tour.childPrice }}eur</p>
+<p>Price for adults: {{data.tour.adultPrice | currency:'EUR'  }}</p>
+<p>Price for children: {{data.tour.childPrice | currency:'EUR'  }}</p>
 <p>Number of adults: {{ data.purchaseData.numberOfAdults }}</p>
 <p>Number of children: {{ data.purchaseData.numberOfChildren }}</p>
-<p>Total price: {{ data.total }}</p>
+<p class="total-price">Total price: {{ data.total  | currency:'EUR' }}</p>
 <!-- Add more content as needed -->
 </div>
 </main>

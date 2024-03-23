@@ -24,6 +24,13 @@ export class UserProfileComponent implements OnInit{
 
   constructor(private apiService: ApiService, public dialog: MatDialog) {}
 
+  hasDeparted(departureDate: string): boolean {
+    const today = new Date();
+    today.setHours(0, 0, 0, 0);
+    const departure = new Date(departureDate);
+    return departure < today;
+  }
+  
   openDialog(tour: Tour): void {
     // Finds the purchase data that matches the tour id
     const relevantPurchaseData = this.purchaseData.find(pd => pd.tourId === tour.id);
@@ -32,7 +39,7 @@ export class UserProfileComponent implements OnInit{
     if (relevantPurchaseData) {
       this.apiService.calculateTotal(relevantPurchaseData.id).subscribe(total => {
         this.dialog.open(BoughtTourDialogComponent, {
-          width: '250px',
+          width: '400px',
           data: {
             tour: tour,
             purchaseData: relevantPurchaseData,

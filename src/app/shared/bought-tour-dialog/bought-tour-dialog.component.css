@@ -1,3 +1,59 @@
 .content {
-    margin: 1em 1em 1em 1em;
-}
+    /* Consistent spacing around the content */
+    padding: 2em;
+    background-color: #ffffff; /* Clean white background */
+    border-radius: 8px; /* Slightly rounded corners for a softer look */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+    display: flex; /* Using flexbox for layout */
+    flex-direction: column; /* Stack children vertically */
+  
+    gap: 1em; /* Space between elements */
+    max-width: 500px; /* Maximum width of the dialog */
+    width: 100%; /* Full width for smaller devices */
+    box-sizing: border-box; /* Padding included in the width */
+  }
+  
+  /* Apply a global font style for the dialog */
+  body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* A modern, sans-serif font */
+    color: #333333; /* A darker grey that is easy on the eyes */
+    line-height: 1.5; /* A comfortable line-height for readability */
+  }
+  
+  h2 {
+    text-align: center;
+  }
+  
+  /* Input fields styling */
+  input, select, textarea {
+    border: 1px solid #ddd; /* Light grey border */
+    border-radius: 4px; /* Rounded corners */
+    padding: 8px; /* Inner padding */
+    width: calc(100% - 16px); /* Full width minus padding */
+    margin-bottom: 0.5em; /* Margin for spacing */
+  }
+  
+  /* Adjusting the mat-dialog-content padding */
+  mat-dialog-content {
+    padding: 20px;
+  }
+  
+  /* Title styles */
+  mat-dialog-title {
+    font-size: 1.5em; /* Larger font size for titles */
+    margin-bottom: 0.5em; /* Space after title */
+  }
+  
+  /* Content within the dialog */
+  mat-dialog-content p {
+    margin-bottom: 1em; /* Space between paragraphs */
+  }
+  
+  /* For small screens */
+  @media (max-width: 600px) {
+    .content {
+      padding: 1em; /* Less padding on smaller screens */
+      max-width: none; /* Full width dialog on small screens */
+    }
+  }
+  

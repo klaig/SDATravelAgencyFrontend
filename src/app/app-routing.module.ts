@@ -9,7 +9,6 @@ import { LayoutComponent } from './layout/layout.component';
 import { AboutUsComponent } from './pages/about-us/about-us.component';
 import { ContactUsComponent } from './pages/contact-us/contact-us.component';
 import { ToursComponent } from './pages/tours/tours.component';
-import { PromotedToursComponent } from './pages/promoted-tours/promoted-tours.component';
 
 const routes: Routes = [
   {
@@ -23,7 +22,6 @@ const routes: Routes = [
       { path: 'about', component: AboutUsComponent },
       { path: 'contact', component: ContactUsComponent },
       { path: 'tours', component: ToursComponent},
-      { path: 'promotedTours', component: PromotedToursComponent}
       // ... other routes ...
     ]
   },

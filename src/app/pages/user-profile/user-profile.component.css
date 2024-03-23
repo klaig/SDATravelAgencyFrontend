@@ -1,85 +1,86 @@
 body {
-    margin: 4em 4em 4em 4em;
+  margin: 0;
+  padding: 4em;
+  background: #f5f5f5; /* Example background color */
+  display: flex;
+  flex-direction: column; /* Aligns children (like the grid) to the center */
 }
 
 mat-card {
-    max-width: 400px; /* Adjust this value as per your content */
-    margin-bottom: 3em;
-  }
-
-mat-card mat-card-header mat-card-subtitle {
+  max-width: 400px;
   margin-bottom: 2em;
+  /* If mat-card should start from the left, remove the auto margins */
+}
+.user-card {
+  justify-content: left;
+}
+#page-header {
+  width: 100%;
+  text-align: center; /* Keeps "My Bookings" centered */
 }
 
-  #page-header, .city-gallery {
-    display: flex;
-    flex-direction: column;
-    align-items: center; /* Centers content horizontally */
-    width: 100%;
-  }
-  
-  .flex-container, .gallery-header {
-    width: 100%; /* Use 100% width of their container */
-    text-align: center; /* Centers the text */
-  }
+mat-divider {
+  width: calc(100% - 8em); /* Full width minus the padding of the body */
+  height: 2px;
+  background-color: #e0e0e0;
+  margin: 2em 0;
+}
 
-  .grid-container {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); /* Adjust as needed */
-    gap: 20px;
-    width: 80%; /* Adjust the width as per your requirement */
-    margin: auto; /* Center the grid */
-  }
+.tour-results {
+  padding: 20px;
+}
 
-  .city-gallery {
-    max-width: 90%;
-    margin: auto; /* Centers the gallery */
-  }
-  
-  .grid-container {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr); /* Creates a four-column layout */
-    gap: 20px; /* Adjust the gap as needed */
-    margin-bottom: 5em;
-  }
-  
-  .city {
-    position: relative; /* Needed for absolute positioning of the text */
-    overflow: hidden;
-  }
-  
-  .city img {
-    width: 100%; /* Ensure the image fills the container */
-    height: 100%; /* Maintain aspect ratio */
-    display: block; /* Remove any extra space beneath the image */
-    object-fit: cover;
-    transition: transform 0.5s ease;
-  }
-  
-  .city:hover img {
-    transform: scale(1.1); /* Zooms in the image to 110% of its original size */
-  }
+.tour-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 20px;
+}
 
-  .city-name {
-    position: absolute;
-    text-align: left;
-    text-align: top;
-    top: 10px; /* Position the text at the bottom of the image */
-    left: 10px; /* Position the text from the left side of the image */
-    color: white; /* Text color */
-    padding: 5px;
-    margin: 0; /* Remove any default margins */
-  
+.tour-card {
+  background: #fff;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.tour-buttons {
+  justify-content: center;
+  align-items: center;
+  display: flex;
+}
+.tour-card:hover {
+  transform: scale(1.05); /* Enlarge the card on hover */
+  transition: transform 0.3s; /* Add a smooth transition */
+}
+
+.tour-image {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+}
+
+.tour-details {
+  padding: 15px;
+}
+
+.tour-details h3 {
+  margin-top: 0;
+  color: #333;
+}
+
+.tour-price {
+  font-weight: bold;
+  color: #E53935;
+}
+
+.tour-length, .tour-departure {
+  color: #666;
+  font-size: 0.9em;
+}
+
+@media (max-width: 600px) {
+  .tour-grid {
+    grid-template-columns: 1fr;
   }
-  
-  .country-name {
-    position: absolute;
-    text-align: left;
-    text-align: top;
-    top: 30px; /* Position the text at the bottom of the image */
-    left: 15px; /* Position the text from the left side of the image */
-    color: white; /* Text color */
-    padding: 5px;
-    margin: 0; /* Remove any default margins */
-  
-  }
+}

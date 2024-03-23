@@ -51,7 +51,11 @@
       grid-template-columns: 1fr;
     }
   }
-
+  .tour-buttons {
+    justify-content: center;
+    align-items: center;
+    display: flex;
+  }
   /* Overall form styling */
 .search-form {
     display: flex;

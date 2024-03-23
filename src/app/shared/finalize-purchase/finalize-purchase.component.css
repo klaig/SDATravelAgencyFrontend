@@ -1,12 +1,43 @@
+.mat-dialog-content {
+  display: flex;
+  flex-direction: column; /* Arrange items vertically */
+  align-items: center; /* Center items horizontally */
+}
+
+.mat-radio-group {
+  display: flex;
+  flex-direction: column;
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+
 .payment-option {
-    display: block;
-    margin: 10px 0;
-  }
-  
-  mat-dialog-actions {
-    justify-content: flex-end;
-  }
-  
-  button {
-    margin-left: 10px;
-  }
+  margin: 10px 0;
+  padding: 10px;
+  border-radius: 5px;
+  transition: background-color 0.2s;
+}
+
+.payment-option:hover {
+  background-color: #009df238; /* Light blue for hover effect */
+}
+
+.mat-mdc-dialog-actions {
+  display: flex;
+  justify-content: center; /* Center the action buttons */
+  padding-top: 30px; /* Add some space above the buttons */
+  padding-bottom: 30px;
+}
+
+.mat-dialog-actions button {
+  margin-left: 10px;
+  padding: 10px 20px; /* More spacious button */
+}
+
+button {
+  margin: 0 10px; /* Add spacing between buttons */
+}
+mat-dialog-content h2 {
+  text-align: center; /* Center the title text */
+  padding-bottom: 20px;
+}

@@ -45,7 +45,6 @@ import { NgbCarouselModule, NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { TourPurchaseDialogComponent } from './shared/tour-purchase-dialog/tour-purchase-dialog.component';
 import { FinalizePurchaseComponent } from './shared/finalize-purchase/finalize-purchase.component';
 import {MatRadioModule} from '@angular/material/radio';
-import { PromotedToursComponent } from './pages/promoted-tours/promoted-tours.component'; 
 import {MatSelectModule} from '@angular/material/select'; 
 
 @NgModule({
@@ -67,8 +66,7 @@ import {MatSelectModule} from '@angular/material/select';
     LayoutComponent,
     BoughtTourDialogComponent,
     TourPurchaseDialogComponent,
-    FinalizePurchaseComponent,
-    PromotedToursComponent
+    FinalizePurchaseComponent
   ],
   imports: [
     BrowserModule,

@@ -25,7 +25,11 @@ main {
 .tour-details {
   padding: 15px;
 }
-
+.tour-buttons {
+  justify-content: center;
+  align-items: center;
+  display: flex;
+}
 .tour-details h3 {
   margin-top: 0;
   color: #333;

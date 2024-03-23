@@ -1,4 +1,5 @@
 <body>
+    <div class="user-card">
     <mat-card>
         <mat-card-header>
             <mat-card-title>{{ name }}</mat-card-title>
@@ -9,25 +10,28 @@
             <p>Username: {{ username }} </p>
         </mat-card-content>
     </mat-card>
-    
+</div>
         <header id="page-header">
             <div class="flex-container">
                 <h1 class="title">My Bookings</h1>
                 <p class="text">Here you can see all your bookings</p>
-                <mat-divider></mat-divider>
+                
             </div>
         </header>
-        <section class="city-gallery">
-            <header class="gallery-header">
-                <h2>Explore Your Bookings</h2>
-            </header>
-            <div class="grid-container">
-                <div *ngFor="let tour of boughtTours" class="city" (click)="openDialog(tour)">
-                    <img [src]="'/assets/images/' + tour.destination + '.jpg'" alt="{{tour.destination}}">
-                    <h2 class="city-name">{{tour.destination}}</h2>
-                    <!-- TODO: <h3 class="country-name">Italy</h3> -->
-
+        <mat-divider></mat-divider>
+            <section class="tour-results">
+                <div class="tour-grid">
+                    <div *ngFor="let tour of boughtTours" class="tour-card">
+                    <img [src]="'/assets/images/' + tour.destination + '.jpg'" alt="{{tour.destination}}" class="tour-image">
+                    <div class="tour-details">
+                        <h3>{{tour.destination}}</h3>
+                        <p *ngIf="hasDeparted(tour.departureDate)" class="tour-departed">Departed: {{tour.departureDate | date:'mediumDate'}}</p>
+                        <p *ngIf="!hasDeparted(tour.departureDate)" class="tour-departure">Departs: {{tour.departureDate | date:'mediumDate'}}</p>
+                        <div class="tour-buttons">
+                        <button mat-raised-button color="primary" (click)="openDialog(tour)" class="details">Details</button>
+                        </div>
+                    </div>
+                    </div>
                 </div>
-              </div>
-        </section>
-</body>
+            </section>
+        </body>
