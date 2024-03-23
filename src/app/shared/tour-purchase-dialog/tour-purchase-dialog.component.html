@@ -1,12 +1,13 @@
-<h1>Purchase tour</h1>
-
-<h2>{{data.tour.destination}}</h2>
-<p>From: {{data.tour.departureDate }} To: {{data.tour.returnDate}}</p>
-<p>Length: {{data.tour.length}} days</p>
-<p>Price for adults: {{data.tour.adultPrice }}eur</p>
-<p>Price for children: {{data.tour.childPrice }}eur</p>
-<p>Available seats: {{ data.tour.availableSeats }}</p>
-<app-custom-number-input [(value)]="adults" label="Adults"></app-custom-number-input>
-<app-custom-number-input [(value)]="children" label="Children"></app-custom-number-input>
-<p>Total price: {{ data.tour.adultPrice * adults + data.tour.childPrice * children }}</p>
-<button mat-raised-button color="primary" type="submit" (click)="createPurchaseData()" class="searchButton">Continue</button>
+<div class="purchase-container">
+    <h1>Purchase tour</h1>
+    <h2>{{data.tour.destination}}</h2>
+    <p>From: {{data.tour.departureDate | date:'mediumDate'}} To: {{data.tour.returnDate | date:'mediumDate'}}</p>
+    <p>Length: {{data.tour.length}} days</p>
+    <p>Price for adults: {{data.tour.adultPrice | currency:'EUR' }}</p>
+    <p>Price for children: {{data.tour.childPrice | currency:'EUR' }}</p>
+    <p>Available seats: {{ data.tour.availableSeats }}</p>
+    <app-custom-number-input [(value)]="adults" label="Adults" class="custom-input"></app-custom-number-input>
+    <app-custom-number-input [(value)]="children" label="Children" class="custom-input"></app-custom-number-input>
+    <p class="total-price">Total price: {{ data.tour.adultPrice * adults + data.tour.childPrice * children | currency:'EUR'}}</p>
+    <button mat-raised-button color="primary" type="submit" (click)="createPurchaseData()" class="searchButton">Continue</button>
+</div>

@@ -30,55 +30,66 @@ export class HomeComponent implements OnInit{
     this.apiService.findAllByPromoted(true).subscribe({
       next: (data) => {
         this.promotedTours = data;
-        this.groupPromotedTours();
+        this.processPromotedTours(this.promotedTours);
       },
       error: (error) => console.error('Error fetching promoted tours:', error)
     });
   }
 
-  private groupPromotedTours() {
-    for (let i = 0; i < this.promotedTours.length; i += 4) {
-      this.promotedTourGroups.push(this.promotedTours.slice(i, i + 4));
+  hasDeparted(departureDate: string): boolean {
+    const today = new Date();
+    today.setHours(0, 0, 0, 0);
+    const departure = new Date(departureDate);
+    return departure < today;
+  }
+
+  processPromotedTours(promotedTours: Tour[]) {
+    // Filter out tours that have already departed
+    const validTours = promotedTours.filter(tour => !this.hasDeparted(tour.departureDate));
+
+    // Now group the valid tours for the carousel
+    this.promotedTourGroups = [];
+    for (let i = 0; i < validTours.length; i += 2) {
+        this.promotedTourGroups.push(validTours.slice(i, i + 2));
     }
   }
 
+  // onSearch() {
+  //   const destinationControl = this.searchForm.get('destination');
+  //   if (!destinationControl || destinationControl.value === null) {
+  //     console.error('Destination control is not available or has no value');
+  //     return;
+  //   }
+  //   const destination = destinationControl.value;
+  //   this.apiService.findAllByDestination(destination)
+  //   .subscribe({
+  //     next: (data) => {
+  //       // Handle the emitted data (the tours)
+  //       const today = new Date();
+  //       today.setHours(0, 0, 0, 0);
 
-  onSearch() {
-    const destinationControl = this.searchForm.get('destination');
-    if (!destinationControl || destinationControl.value === null) {
-      console.error('Destination control is not available or has no value');
-      return;
-    }
-    const destination = destinationControl.value;
-    this.apiService.findAllByDestination(destination)
-    .subscribe({
-      next: (data) => {
-        // Handle the emitted data (the tours)
-        const today = new Date();
-        today.setHours(0, 0, 0, 0);
-
-        this.tours = data.filter(tour => {
-          const departureDate = new Date(tour.departureDate);
-          return departureDate >= today;
-        });
-        this.tours = data;
-        console.log('Tours:', this.tours);
-        console.log('Destination:', destination);
-      },
-      error: (error) => {
-        // Handle any errors
-        console.error('Error fetching tours:', error);
-      },
-      complete: () => {
-        // Handle completion
-        console.log('Tour fetching completed');
-      }
-    });
-}
+  //       this.tours = data.filter(tour => {
+  //         const departureDate = new Date(tour.departureDate);
+  //         return departureDate >= today;
+  //       });
+  //       this.tours = data;
+  //       console.log('Tours:', this.tours);
+  //       console.log('Destination:', destination);
+  //     },
+  //     error: (error) => {
+  //       // Handle any errors
+  //       console.error('Error fetching tours:', error);
+  //     },
+  //     complete: () => {
+  //       // Handle completion
+  //       console.log('Tour fetching completed');
+  //     }
+  //   });
+  // }
 
   openDialog(tour: Tour): void {
     this.dialog.open(TourPurchaseDialogComponent, {
-      width: '250px',
+      width: '400px',
       data: {
         tour: tour,
       }

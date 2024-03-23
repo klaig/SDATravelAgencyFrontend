@@ -3,27 +3,62 @@ nav {
     background-image: url(/assets/images/background.jpg);
 }
 
-div {
-   /* stretch */
+
+
+.footer {
+    background-color: #08243b;
+    color: white;
+    display: flex;
+    justify-content: space-around;
+    align-items: start;
+    min-height: 15em;
+    padding-left: 100px;
+    padding-top: 50px;
+  }
+  
+  .footer-column {
+    flex-basis: 20%; /* Adjust based on content width */
+    padding: 0 10px;
+  }
+  
+  .footer-column h3 {
+    margin-bottom: 10px;
+    font-size: 1.2em;
+  }
+  
+  .footer-column ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+  
+  .footer-column ul li {
+    margin-bottom: 5px;
+  }
+  
+  .footer-heart {
+    flex-basis: 20%;
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 100%;
-}
-
-.heartButton {
+  }
+  
+  .heartButton {
     margin-right: 4em;
+    margin-top: 2em;
 }
+  
+  @media (max-width: 768px) {
+    .footer {
+      flex-direction: column;
+      text-align: center;
+    }
+  
+    .footer-column,
+    .footer-heart {
+      flex-basis: 100%;
+      margin-bottom: 20px;
+    }
+  }
 
-.footer {
-    width: 100%;
-    background-color: #08243b;
-    color: white;
-    padding: 20px 0 20px 0;
-    text-align: left;
-    min-height: 50px;
-    display: flex;
-    align-items: stretch;
-    justify-content: right;
-    margin-top: 3em;
-}
+  

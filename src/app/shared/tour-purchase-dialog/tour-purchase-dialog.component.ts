@@ -38,7 +38,7 @@ export class TourPurchaseDialogComponent {
         console.log(purchaseDataData);
         // Open the new dialog
         this.dialog.open(FinalizePurchaseComponent, {
-          width: '250px',
+          width: '400px',
           data: {
             purchaseDataId: purchaseDataData.id
           }

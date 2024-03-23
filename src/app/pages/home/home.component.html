@@ -1,34 +1,124 @@
-
-<form [formGroup]="searchForm" (ngSubmit)="onSearch()">
-  <app-destination-auto-complete 
-    [formGroup]="searchForm" 
-    controlName="destination">
-  </app-destination-auto-complete>
-  <!-- ... other form fields ... -->
-  <button type="submit">Search</button>
-</form>
-
-
-<section class="search-results">
-  <h2>Tours in {{ destination }}</h2>
+<section class="introduction">
+  <div class="intro-content">
+    <div class="row">
+      <div class="col col--lg-8 col--md-8 col--sm-12 col--xs-12 col--lg-offset-2 col--md-offset-2">
+        <h1>The luxury travel experts</h1>
+        <p class="intro-text">Welcome to a world of endless adventure and discovery with our expert travel services. 
+          We're passionate about crafting unforgettable journeys that cater to your unique wanderlust. 
+          With years of experience and a deep understanding of the travel industry, we ensure every trip is a seamless, memorable experience. 
+          From exotic destinations to hidden gems, we offer insights and access to the world's most incredible places. 
+          Join us as we turn your travel dreams into reality, with personalized itineraries tailored just for you.</p>
+      </div>
+    </div>
+  </div>
 </section>
-  
 
-   <section class="promoted-tours">
-    <h1>Promoted tours</h1>
-   
-   <ngb-carousel *ngIf="promotedTourGroups.length > 0">
-    <ng-template ngbSlide *ngFor="let group of promotedTourGroups">
-      <div class="tour-group">
-        <div *ngFor="let tour of group" class="tour-card" (click)="openDialog(tour)">
-          <img [src]="'/assets/images/' + tour.destination + '.jpg'" alt="Image of {{ tour.destination }}" class="tour-image">
-          <div class="tour-info">
-            <h3>{{ tour.destination }}</h3>
-            <h4 class="description">description</h4>
+<main>
+  <section class="coming-soon">
+    <div class="coming-soon-image-div">
+      <img src="/assets/images/coming-soon.jpg" alt="Coming Soon" class="coming-soon-image">
+    </div>
+    <div class="coming-soon-details">
+      <h1>Coming Soon</h1>
+      <p>Our team is working hard to bring you new and exciting tours. Check back soon for updates!</p>
+    </div>
+  </section>
+
+
+<div class="promoted-section">
+  <div class="promoted-header">
+    <h1>PROMOTED TOURS</h1>
+  </div>
+  <section class="promoted-tours">
+    <ngb-carousel *ngIf="promotedTourGroups.length > 0" [showNavigationIndicators]="false">
+      <ng-template ngbSlide *ngFor="let group of promotedTourGroups">
+        <div class="tour-group">
+          <div *ngFor="let tour of group" class="tour-card">
+            <img [src]="'/assets/images/' + tour.destination + '.jpg'" alt="Image of {{ tour.destination }}" class="tour-image">
+            <div class="tour-details">
+              <h3>{{tour.destination}}</h3>
+              <p class="tour-price">{{tour.adultPrice | currency}} for adults</p>
+              <p class="tour-price">{{tour.childPrice | currency}} for children</p>
+              <p class="tour-length">{{tour.length}} days</p>
+              <p *ngIf="hasDeparted(tour.departureDate)" class="tour-departed">Already Departed</p>
+              <p *ngIf="!hasDeparted(tour.departureDate)" class="tour-departure">Departs: {{tour.departureDate | date:'mediumDate'}}</p>
+              <button *ngIf="!hasDeparted(tour.departureDate)" mat-raised-button color="primary" (click)="openDialog(tour)" class="book-now">Book Now</button>
+            </div>
+          </div>
+        </div>
+      </ng-template>
+    </ngb-carousel>
+  </section>
+</div>
+
+<mat-divider></mat-divider>
+
+<div class="responsive-container-block big-container">
+  <div class="responsive-container-block bg">
+    <p class="text-blk title">
+      Testimonials
+    </p>
+    <p class="text-blk desc">
+      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Velit massa ante viverra non maecenas. Faucibus amet quis duis egestas.
+    </p>
+    <div class="responsive-container-block blocks">
+      <div class="responsive-cell-block wk-desk-1 wk-tab-1 wk-mobile-1 wk-ipadp-1 content">
+        <p class="text-blk info-block">
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cursus elementum magna ut duis pulvinar tincidunt vivamus adipiscing quam. Eget dui quis etiam sed eget sed est.
+        </p>
+        <div class="responsive-container-block person">
+          <div class="responsive-cell-block wk-desk-6 wk-ipadp-6 wk-tab-12 wk-mobile-12 icon-block">
+            <img class="profile-img" src="https://workik-widget-assets.s3.amazonaws.com/widget-assets/images/eourInstructors1.svg">
+          </div>
+          <div class="responsive-cell-block wk-desk-6 wk-ipadp-6 wk-tab-12 wk-mobile-12 text-block">
+            <p class="text-blk name">
+              Jane Doe
+            </p>
+            <p class="text-blk desig">
+              CEO
+            </p>
           </div>
         </div>
       </div>
-    </ng-template>
-  </ngb-carousel>
-</section> 
-  
+      <div class="responsive-cell-block wk-desk-1 wk-tab-1 wk-mobile-1 wk-ipadp-1 content">
+        <p class="text-blk info-block">
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cursus elementum magna ut duis pulvinar tincidunt vivamus adipiscing quam. Eget dui quis etiam sed eget sed est.
+        </p>
+        <div class="responsive-container-block person">
+          <div class="responsive-cell-block wk-desk-6 wk-ipadp-6 wk-tab-12 wk-mobile-12 icon-block">
+            <img class="profile-img" src="https://workik-widget-assets.s3.amazonaws.com/widget-assets/images/eourInstructors1.svg">
+          </div>
+          <div class="responsive-cell-block wk-desk-6 wk-ipadp-6 wk-tab-12 wk-mobile-12 text-block">
+            <p class="text-blk name">
+              Jane Doe
+            </p>
+            <p class="text-blk desig">
+              CEO
+            </p>
+          </div>
+        </div>
+      </div>
+      <div class="responsive-cell-block wk-desk-1 wk-tab-1 wk-mobile-1 wk-ipadp-1 content bottom">
+        <p class="text-blk info-block">
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cursus elementum magna ut duis pulvinar tincidunt vivamus adipiscing quam. Eget dui quis etiam sed eget sed est.
+        </p>
+        <div class="responsive-container-block person">
+          <div class="responsive-cell-block wk-desk-6 wk-ipadp-6 wk-tab-12 wk-mobile-12 icon-block">
+            <img class="profile-img" src="https://workik-widget-assets.s3.amazonaws.com/widget-assets/images/eourInstructors1.svg">
+          </div>
+          <div class="responsive-cell-block wk-desk-6 wk-ipadp-6 wk-tab-12 wk-mobile-12 text-block">
+            <p class="text-blk name">
+              Jane Doe
+            </p>
+            <p class="text-blk desig">
+              CEO
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</main>
+
+

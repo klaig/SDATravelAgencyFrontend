@@ -13,3 +13,7 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 /* .mat-mdc-tab.mdc-tab--active .mdc-tab__text-label { color: white; }
 .mat-mdc-tab .mdc-tab__text-label { color: white!important; } */
 .mdc-tab-indicator .mdc-tab-indicator__content.mdc-tab-indicator__content--underline { border-top-width: 5px; }
+.carousel-control-next-icon,
+.carousel-control-prev-icon {
+   filter: invert(1);
+}

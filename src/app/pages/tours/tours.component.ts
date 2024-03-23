@@ -48,6 +48,13 @@ export class ToursComponent implements OnInit{
 
   }
 
+  hasDeparted(departureDate: string): boolean {
+    const today = new Date();
+    today.setHours(0, 0, 0, 0);
+    const departure = new Date(departureDate);
+    return departure < today;
+  }
+
   fetchAndSortTours(): void {
     // Get current form values
     const { destination, minDate, maxDate, length, promoted, sort } = this.searchForm.value;
@@ -120,7 +127,7 @@ export class ToursComponent implements OnInit{
 
   openDialog(tour: Tour): void {
     this.dialog.open(TourPurchaseDialogComponent, {
-      width: '250px',
+      width: '400px',
       data: {
         tour: tour,
       }

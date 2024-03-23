@@ -34,7 +34,7 @@ export class PromotedToursComponent implements OnInit{
 
   openDialog(tour: Tour): void {
     this.dialog.open(TourPurchaseDialogComponent, {
-      width: '250px',
+      width: '400px',
       data: {
         tour: tour,
       }
