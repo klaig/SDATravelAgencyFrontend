@@ -1,5 +1,5 @@
 
-<!-- <section class="searchForm">
+<section class="searchForm">
 <app-destination-auto-complete [(destination)]="selectedDestination" class="destination"></app-destination-auto-complete>
 <button mat-raised-button color="primary" type="submit" (click)="onSearch()" class="searchButton">Search</button>
 </section>
@@ -21,14 +21,14 @@
     </div>
   </div>
   
-   -->
+
    <section class="promoted-tours">
     <h1>Promoted tours</h1>
    
    <ngb-carousel *ngIf="tourGroups.length > 0">
     <ng-template ngbSlide *ngFor="let group of tourGroups">
       <div class="tour-group">
-        <div *ngFor="let tour of group" class="tour-card">
+        <div *ngFor="let tour of group" class="tour-card" (click)="openDialog(tour)">
           <img [src]="'/assets/images/' + tour.destination + '.jpg'" alt="Image of {{ tour.destination }}" class="tour-image">
           <div class="tour-info">
             <h3>{{ tour.destination }}</h3>

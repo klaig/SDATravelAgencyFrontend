@@ -43,6 +43,9 @@ import { BoughtTourDialogComponent } from './shared/bought-tour-dialog/bought-to
 import {MatDialogModule} from '@angular/material/dialog'; 
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { NgbCarouselModule, NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { TourPurchaseDialogComponent } from './shared/tour-purchase-dialog/tour-purchase-dialog.component';
+import { FinalizePurchaseComponent } from './shared/finalize-purchase/finalize-purchase.component';
+import {MatRadioModule} from '@angular/material/radio'; 
 
 @NgModule({
   declarations: [
@@ -62,7 +65,9 @@ import { NgbCarouselModule, NgbModule } from '@ng-bootstrap/ng-bootstrap';
     UserProfileComponent,
     ToursComponent,
     LayoutComponent,
-    BoughtTourDialogComponent
+    BoughtTourDialogComponent,
+    TourPurchaseDialogComponent,
+    FinalizePurchaseComponent
   ],
   imports: [
     BrowserModule,
@@ -93,7 +98,8 @@ import { NgbCarouselModule, NgbModule } from '@ng-bootstrap/ng-bootstrap';
     MatDialogModule,
     MatSnackBarModule,
     NgbCarouselModule,
-    NgbModule
+    NgbModule,
+    MatRadioModule
   ],
   providers: [
     provideAnimationsAsync(),

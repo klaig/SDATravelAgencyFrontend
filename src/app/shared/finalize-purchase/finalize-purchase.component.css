@@ -1,0 +1,12 @@
+.payment-option {
+    display: block;
+    margin: 10px 0;
+  }
+  
+  mat-dialog-actions {
+    justify-content: flex-end;
+  }
+  
+  button {
+    margin-left: 10px;
+  }

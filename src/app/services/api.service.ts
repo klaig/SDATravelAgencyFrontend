@@ -117,8 +117,8 @@ export class ApiService {
   // Tour api calls end
   // PurchaseData api calls start
 
-  createPurchasedData(purchaseData: PurchaseData) {
-    return this.http.post('http://localhost:8080/api/v1/tour/purchase', purchaseData);
+  createPurchasedData(purchaseData: PurchaseData): Observable<PurchaseData> {
+    return this.http.post<PurchaseData>('http://localhost:8080/api/v1/tour/purchase', purchaseData);
   }
 
   calculateTotal(purchaseDataId: number): Observable<number> {
