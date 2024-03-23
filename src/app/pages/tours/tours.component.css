@@ -73,6 +73,10 @@
   #inputs {
     position: relative;
   }
+
+  .checkbox {
+    padding-bottom: 30px;
+  }
   
   /* Sort by field styling */
   .search-form mat-form-field.appearance-fill {

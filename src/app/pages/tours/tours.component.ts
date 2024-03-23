@@ -36,6 +36,7 @@ export class ToursComponent implements OnInit{
       minDate: [''],
       maxDate: [''],
       length: [''],
+      promoted: [''],
       sort: ['']
     });
 
