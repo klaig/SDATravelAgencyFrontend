@@ -1,0 +1,93 @@
+.tour-results {
+    padding: 20px;
+  }
+  
+  .tour-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 20px;
+  }
+  
+  .tour-card {
+    background: #fff;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  }
+  
+  .tour-card:hover {
+    transform: scale(1.05); /* Enlarge the card on hover */
+    transition: transform 0.3s; /* Add a smooth transition */
+  }
+
+  .tour-image {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+  }
+
+  .tour-details {
+    padding: 15px;
+  }
+  
+  .tour-details h3 {
+    margin-top: 0;
+    color: #333;
+  }
+  
+  .tour-price {
+    font-weight: bold;
+    color: #E53935;
+  }
+  
+  .tour-length, .tour-departure {
+    color: #666;
+    font-size: 0.9em;
+  }
+  
+  @media (max-width: 600px) {
+    .tour-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  /* Overall form styling */
+.search-form {
+    display: flex;
+    flex-direction: row; /* Stack fields vertically */
+    align-items: center; /* Center items horizontally */
+    justify-content: center; /* Center items vertically */
+    gap: 20px;
+    margin-bottom: 40px;
+    margin-top: 2em;
+  }
+  
+  /* Style for form fields */
+  .search-form mat-form-field {
+    width: 100%; /* Full width on small screens */
+    max-width: 300px; /* Maximum width, but can shrink on smaller screens */
+  }
+  
+  /* Date range picker specifically */
+  #inputs {
+    position: relative;
+  }
+  
+  /* Sort by field styling */
+  .search-form mat-form-field.appearance-fill {
+    width: auto;
+  }
+  
+  /* Responsive adjustments */
+  @media (min-width: 768px) {
+    .search-form {
+      flex-direction: row; /* Fields in a row on larger screens */
+      justify-content: center; /* Keep centered horizontally */
+      align-items: center; /* Align items vertically */
+    }
+    .search-form > * {
+      width: auto; /* Allow form fields and button to determine their width */
+    }
+  }
+  

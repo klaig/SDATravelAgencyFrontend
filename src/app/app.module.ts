@@ -46,6 +46,7 @@ import { TourPurchaseDialogComponent } from './shared/tour-purchase-dialog/tour-
 import { FinalizePurchaseComponent } from './shared/finalize-purchase/finalize-purchase.component';
 import {MatRadioModule} from '@angular/material/radio';
 import { PromotedToursComponent } from './pages/promoted-tours/promoted-tours.component'; 
+import {MatSelectModule} from '@angular/material/select'; 
 
 @NgModule({
   declarations: [
@@ -99,7 +100,8 @@ import { PromotedToursComponent } from './pages/promoted-tours/promoted-tours.co
     MatSnackBarModule,
     NgbCarouselModule,
     NgbModule,
-    MatRadioModule
+    MatRadioModule,
+    MatSelectModule
   ],
   providers: [
     provideAnimationsAsync(),

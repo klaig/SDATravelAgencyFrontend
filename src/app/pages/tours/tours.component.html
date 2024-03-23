@@ -1,4 +1,4 @@
-<form [formGroup]="searchForm" (ngSubmit)="onSearch()">
+<form [formGroup]="searchForm" class="search-form">
   
     <!-- Destination Autocomplete Component -->
     <app-destination-auto-complete 
@@ -22,15 +22,37 @@
       <mat-label>Length (days)</mat-label>
       <input matInput formControlName="length" placeholder="Length">
     </mat-form-field>
-  
-    <!-- Search Button -->
-    <button mat-raised-button color="primary" type="submit">Search</button>
-  
-  </form>
+    
+    <!-- Dropdown for Sorting -->
+  <mat-form-field appearance="fill">
+    <mat-label>Sort by</mat-label>
+    <mat-select formControlName="sort">
+      <mat-option *ngFor="let option of sortOptions" [value]="option.value">
+        {{ option.display }}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+</form>
+<mat-divider></mat-divider>
   
 
-  <!-- <mat-label>Price Range</mat-label>
-                        <mat-slider min="20" max="500" discrete step="10" class="range">
-                            <input matInput [(ngModel)]="startValue" matSliderStartThumb name="startValue">
-                            <input matInput [(ngModel)]="endValue" matSliderEndThumb name="endValue">
-                        </mat-slider> -->
+  <section class="tour-results">
+    <div class="sorting-filtering">
+      <!-- Add your sorting and filtering components here -->
+    </div>
+    
+    <div class="tour-grid">
+      <div *ngFor="let tour of filteredTours" class="tour-card">
+        <img [src]="'/assets/images/' + tour.destination + '.jpg'" alt="{{tour.destination}}" class="tour-image">
+        <div class="tour-details">
+          <h3>{{tour.destination}}</h3>
+          <p class="tour-price">{{tour.adultPrice | currency}} for adults</p>
+          <p class="tour-price">{{tour.childPrice | currency}} for children</p>
+          <p class="tour-length">{{tour.length}} days</p>
+          <p class="tour-departure">Departs: {{tour.departureDate | date:'mediumDate'}}</p>
+          <button mat-raised-button color="primary" (click)="openDialog(tour)" class="book-now">Book Now</button>
+        </div>
+      </div>
+    </div>
+  </section>
+  

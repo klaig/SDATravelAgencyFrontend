@@ -7,6 +7,7 @@ import { SignUpDto } from '../models/signupdto.model';
 import { Observable } from 'rxjs';
 import { AuthResponse } from '../models/auth-response.model';
 import { User } from '../models/user.model';
+import { Page } from '../models/page.model';
 
 @Injectable({
   providedIn: 'root'
@@ -78,14 +79,14 @@ export class ApiService {
 
   private apiUrl = 'http://localhost:8080/api/v1/tours';
 
-  getAllTours(destination?: string, minDate?: string, maxDate?: string, length?: number, promoted?: boolean): Observable<Tour[]> {
+  getAllTours(destination?: string, minDate?: string, maxDate?: string, length?: number, promoted?: boolean): Observable<Page<Tour>> {
     let params = new HttpParams();
     if (destination) params = params.append('destination', destination);
     if (minDate) params = params.append('minDate', minDate);
     if (maxDate) params = params.append('maxDate', maxDate);
     if (length) params = params.append('length', length.toString());
     if (promoted) params = params.append('promoted', promoted.toString());
-    return this.http.get<Tour[]>(this.apiUrl, { params });
+    return this.http.get<Page<Tour>>(this.apiUrl, { params });
   }
 
   findAllTours(): Observable<Tour[]> {
