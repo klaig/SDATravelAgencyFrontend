@@ -1,13 +1,14 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { ApiService } from '../api.service';
 import { Tour } from '../../models/tour.model';
+import { FormControl, FormGroup } from '@angular/forms';
 
 @Component({
   selector: 'app-admin-api',
   templateUrl: './admin-api.component.html',
   styleUrl: './admin-api.component.css'
 })
-export class AdminApiComponent {
+export class AdminApiComponent implements OnInit{
     adultPrice: number = 1500;
     childPrice: number = 700; 
     departureDate: string = "2024-05-01"; 
@@ -18,8 +19,15 @@ export class AdminApiComponent {
     userId: number = 1; 
     tourId: number = 1; 
     checked: boolean = true;
-
+  searchForm!: FormGroup;
   constructor(private apiService: ApiService) {}
+
+  ngOnInit() {
+    this.searchForm = new FormGroup({
+      destination: new FormControl(''), // Add other controls if needed
+      // ... other form controls ...
+    });
+  }
 
   // Function to handle button clicks and update the JSON output
   updateJsonOutput(data: any): void {

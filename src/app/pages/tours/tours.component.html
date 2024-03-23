@@ -1,1 +1,36 @@
-<p>tours works!</p>
+<form [formGroup]="searchForm" (ngSubmit)="onSearch()">
+  
+    <!-- Destination Autocomplete Component -->
+    <app-destination-auto-complete 
+    [formGroup]="searchForm" 
+    controlName="destination">
+  </app-destination-auto-complete>
+
+    <!-- Date Range Picker -->
+    <mat-form-field id="inputs">
+      <mat-label>Departure date between</mat-label>
+      <mat-date-range-input [rangePicker]="picker">
+        <input matInput matStartDate formControlName="minDate">
+        <input matInput matEndDate formControlName="maxDate">
+      </mat-date-range-input>
+      <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+      <mat-date-range-picker #picker></mat-date-range-picker>
+    </mat-form-field>
+  
+    <!-- Length Input -->
+    <mat-form-field>
+      <mat-label>Length (days)</mat-label>
+      <input matInput formControlName="length" placeholder="Length">
+    </mat-form-field>
+  
+    <!-- Search Button -->
+    <button mat-raised-button color="primary" type="submit">Search</button>
+  
+  </form>
+  
+
+  <!-- <mat-label>Price Range</mat-label>
+                        <mat-slider min="20" max="500" discrete step="10" class="range">
+                            <input matInput [(ngModel)]="startValue" matSliderStartThumb name="startValue">
+                            <input matInput [(ngModel)]="endValue" matSliderEndThumb name="endValue">
+                        </mat-slider> -->

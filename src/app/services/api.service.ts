@@ -1,4 +1,4 @@
-import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Tour } from '../models/tour.model';
 import { PurchaseData} from '../models/purchasedata.model';
@@ -75,7 +75,20 @@ export class ApiService {
   // Admin api calls end
   // Tour api calls start
   // returns all tours
-  getAllTours(): Observable<Tour[]> {
+
+  private apiUrl = 'http://localhost:8080/api/v1/tours';
+
+  getAllTours(destination?: string, minDate?: string, maxDate?: string, length?: number, promoted?: boolean): Observable<Tour[]> {
+    let params = new HttpParams();
+    if (destination) params = params.append('destination', destination);
+    if (minDate) params = params.append('minDate', minDate);
+    if (maxDate) params = params.append('maxDate', maxDate);
+    if (length) params = params.append('length', length.toString());
+    if (promoted) params = params.append('promoted', promoted.toString());
+    return this.http.get<Tour[]>(this.apiUrl, { params });
+  }
+
+  findAllTours(): Observable<Tour[]> {
     return this.http.get<Tour[]>('http://localhost:8080/api/v1/tours');
   }
 

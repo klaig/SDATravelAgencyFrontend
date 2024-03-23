@@ -9,7 +9,6 @@ import { TopBarComponent } from './shared/top-bar/top-bar.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HttpClientModule } from '@angular/common/http';
 import { AdminApiComponent } from './services/admin-api/admin-api.component';
-import { TourApiComponent } from './services/tour-api/tour-api.component';
 import { PurchasedataApiComponent } from './services/purchasedata-api/purchasedata-api.component';
 import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
@@ -40,7 +39,7 @@ import { UserProfileComponent } from './pages/user-profile/user-profile.componen
 import { ToursComponent } from './pages/tours/tours.component';
 import { LayoutComponent } from './layout/layout.component';
 import { BoughtTourDialogComponent } from './shared/bought-tour-dialog/bought-tour-dialog.component';
-import {MatDialogModule} from '@angular/material/dialog'; 
+import {MatDialog, MatDialogModule} from '@angular/material/dialog'; 
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { NgbCarouselModule, NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { TourPurchaseDialogComponent } from './shared/tour-purchase-dialog/tour-purchase-dialog.component';
@@ -54,7 +53,6 @@ import { PromotedToursComponent } from './pages/promoted-tours/promoted-tours.co
     TopBarComponent,
     AdminApiComponent,
     PurchasedataApiComponent,
-    TourApiComponent,
     DestinationAutoCompleteComponent,
     CustomNumberInputComponent,
     HomeComponent,
@@ -107,7 +105,7 @@ import { PromotedToursComponent } from './pages/promoted-tours/promoted-tours.co
     provideAnimationsAsync(),
     { provide: DateAdapter, useClass: CustomDateAdapter },
     provideNativeDateAdapter(),
-    { provide: NG_VALUE_ACCESSOR, useExisting: forwardRef(() => TourApiComponent), multi: true}
+    { provide: NG_VALUE_ACCESSOR, useExisting: forwardRef(() => ToursComponent), multi: true}
   ],
   bootstrap: [AppComponent]
 })

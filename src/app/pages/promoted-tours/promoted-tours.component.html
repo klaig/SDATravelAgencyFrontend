@@ -1,1 +1,13 @@
-<p>promoted-tours works!</p>
+<section class="city-gallery">
+    <header class="gallery-header">
+        <h2>All of our promoted tours</h2>
+    </header>
+    <div class="grid-container">
+        <div *ngFor="let tour of promotedTours" class="city" (click)="openDialog(tour)">
+            <img [src]="'/assets/images/' + tour.destination + '.jpg'" alt="{{tour.destination}}">
+            <h2 class="city-name">{{tour.destination}}</h2>
+            <!-- TODO: <h3 class="country-name">Italy</h3> -->
+
+        </div>
+      </div>
+</section>

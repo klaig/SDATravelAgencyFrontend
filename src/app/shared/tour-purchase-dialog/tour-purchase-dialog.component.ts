@@ -32,7 +32,7 @@ export class TourPurchaseDialogComponent {
       userId: JSON.parse(localStorage.getItem('ID') || '0'),
       isPurchased: false
     };
-    
+    if (purchaseData.numberOfAdults + purchaseData.numberOfChildren > 0) {
     this.apiService.createPurchasedData(purchaseData).subscribe({
       next: (purchaseDataData) => {
         console.log(purchaseDataData);
@@ -49,5 +49,8 @@ export class TourPurchaseDialogComponent {
         console.error(error);
       }
     });
+  } else {
+    alert("You must select at least one ticket");
   }
+}
 }

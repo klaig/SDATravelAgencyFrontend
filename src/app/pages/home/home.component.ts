@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormGroup, FormControl } from '@angular/forms';
+import { FormGroup, FormControl, FormBuilder } from '@angular/forms';
 import { ApiService } from '../../services/api.service';
 import { Tour } from '../../models/tour.model';
 import { formatDate } from '@angular/common';
@@ -12,30 +12,45 @@ import { MatDialog } from '@angular/material/dialog';
   styleUrl: './home.component.css'
 })
 export class HomeComponent implements OnInit{
-  selectedDestination: string = '';
   tours: Tour[] = [];
+
   promotedTours: Tour[] = [];
-  tourGroups: Tour[][] = [];
+  promotedTourGroups: Tour[][] = [];
+
+  searchForm!: FormGroup;
+  destination: string = '';
 
   constructor(private apiService: ApiService, public dialog: MatDialog) { }
   
   ngOnInit() {
+    this.searchForm = new FormGroup({
+      destination: new FormControl(''),
+      // ... other controls ...
+    });
     this.apiService.findAllByPromoted(true).subscribe({
       next: (data) => {
         this.promotedTours = data;
-        this.groupTours();
+        this.groupPromotedTours();
       },
       error: (error) => console.error('Error fetching promoted tours:', error)
     });
   }
 
-  private groupTours() {
+  private groupPromotedTours() {
     for (let i = 0; i < this.promotedTours.length; i += 4) {
-      this.tourGroups.push(this.promotedTours.slice(i, i + 4));
+      this.promotedTourGroups.push(this.promotedTours.slice(i, i + 4));
     }
   }
+
+
   onSearch() {
-    this.apiService.findAllByDestination(this.selectedDestination)
+    const destinationControl = this.searchForm.get('destination');
+    if (!destinationControl || destinationControl.value === null) {
+      console.error('Destination control is not available or has no value');
+      return;
+    }
+    const destination = destinationControl.value;
+    this.apiService.findAllByDestination(destination)
     .subscribe({
       next: (data) => {
         // Handle the emitted data (the tours)
@@ -44,10 +59,11 @@ export class HomeComponent implements OnInit{
 
         this.tours = data.filter(tour => {
           const departureDate = new Date(tour.departureDate);
-          console.log("dep: " + departureDate);
-          console.log("today: " + today);
           return departureDate >= today;
         });
+        this.tours = data;
+        console.log('Tours:', this.tours);
+        console.log('Destination:', destination);
       },
       error: (error) => {
         // Handle any errors
