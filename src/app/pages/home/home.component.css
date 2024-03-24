@@ -1,7 +1,6 @@
 main {
-  background-color: white;
+  background-color: rgba(255, 255, 255, 0);
 }
-
 
 .tour-card {
   background: #fff;
@@ -113,14 +112,15 @@ main {
 .coming-soon {
   display: flex;
   background-image: url('/assets/images/bg1.avif');
+  border-top: #fff 10px solid;
 }
 
 .coming-soon-image-div {
   flex: 1;
 }
 .coming-soon-image {
-  width: 100%;
-  height: auto;
+  width: auto;
+  height: 420px;
 }
 
 .coming-soon-details{
@@ -150,7 +150,7 @@ main {
 /* introduction */
 
 .introduction {
-  background-image: url('/assets/images/bg2.avif');
+  background-color: #2121215e;
   display: flex;
   justify-content: center;
   text-align: center;
@@ -165,10 +165,22 @@ main {
 
 .intro-content .row {
   width: 60%;
+  color: #FFFFFF;
+  font-family: 'Roboto', sans-serif;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.row h1 {
+  font-size: 32px; /* or larger */
+  font-weight: bold;
+}
+
+.row p {
+  font-size: 18px;
 }
 
 .intro-text {
-  color: #52575c;
+
   text-align: center;
 }
 /* testimonials */

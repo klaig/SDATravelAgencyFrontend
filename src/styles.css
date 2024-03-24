@@ -17,3 +17,11 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 .carousel-control-prev-icon {
    filter: invert(1);
 }
+#mat-menu-panel-0 {
+    background-color: #212121b4;
+    color: white;
+}
+
+button.mat-mdc-menu-item {
+    color: white;
+}

@@ -1,6 +1,9 @@
-nav {
+body {
     background-color: #c93838; /* Fallback color */
-    background-image: url(/assets/images/background.jpg);
+    background-image: url(/assets/images/background.webp);
+    background-size: 1920px 1080px;
+    background-repeat: no-repeat;
+    background-position: center center;
 }
 
 

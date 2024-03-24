@@ -9,6 +9,9 @@
     align-items: stretch; /* Align the top bar content to the top and bottom of the top bar */
     height: 100%; /* Set the height of the top bar content */
     /* Add other styles for the top bar content */
+    color: #FFFFFF;
+  font-family: 'Roboto', sans-serif;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
 }
 
 .header-info-left, .header-info-right {
@@ -47,7 +50,7 @@
     width: 100%;
     display: flex;
     justify-content: center;
-    background-color: #3f51b5;
+    background-color: #212121b4;
     padding: 0 0; /* Add padding to the top and bottom of the navbar */
 }
 
@@ -64,7 +67,7 @@
 }
 
 .navbar button:hover{
-    background-color: #5f6fca;
+    background-color: #2121218a;
 }
 
 nav ul {
@@ -99,7 +102,7 @@ nav ul li a:hover, .dropdown:hover button {
 /* Dropdown Button */
 .dropdown button {
     position: relative;
-    background: none; /* Match navbar background color */
+    background-color: #2121213f; /* Match navbar background color */
     color: white; /* Match text color */
     padding: 14px 16px; /* Match padding */
     border: none; /* Remove border */
@@ -111,10 +114,10 @@ nav ul li a:hover, .dropdown:hover button {
 
 
 
+
 .dropdown-content {
 
     position: absolute;
-    background-color: #2195f375;
     left: 1em;
     top: 100%;
     min-width: 160px;
