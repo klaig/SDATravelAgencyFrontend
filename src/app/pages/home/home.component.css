@@ -2,14 +2,6 @@ main {
   background-color: rgba(255, 255, 255, 0);
 }
 
-.tour-card {
-  background: #fff;
-  border: 1px solid #212121;
-  border-radius: 10px;
-  overflow: auto;
-  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-}
-
 .tour-card:hover {
   transform: scale(1.05); /* Enlarge the card on hover */
   transition: transform 0.3s; /* Add a smooth transition */
@@ -80,11 +72,17 @@ main {
 }
 
 .promoted-tours .tour-card {
-
   flex: 0 0 35%; /* Each card takes up roughly half of the carousel slide */
   margin: 1%; /* Adjust margin for spacing */
-  border: #303030 solid 2px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.397);
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.tour-card {
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
 }
 
 /* Update the tour group to handle two cards */
