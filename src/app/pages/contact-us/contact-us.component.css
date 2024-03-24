@@ -3,8 +3,8 @@
     min-width: 150px;
     max-width: 500px;
     width: 100%;
-    border: 2px solid #212121;
     max-height: 410px;
+    padding-bottom: 30px;
   }
   
   .example-full-width {
@@ -16,7 +16,8 @@
 body {
     display: flex;
     justify-content: center;
-    padding-top: 25px ;
+    padding-top: 25px;
+    background: transparent;
 }
 
 .button-container {

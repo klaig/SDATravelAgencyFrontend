@@ -34,16 +34,33 @@
 .header-info-right .fab {
     margin-right: 0.5em;
     font-size: 1.5em;
+    padding: 10px;
+    cursor: pointer;
 }
 
 .header-info-right{
     justify-content: flex-end;
     padding-right: 1em;
     display: flex;
+    
 }
 
 .header-info-left {
     justify-content: flex-start;
+}
+
+.header-info-left button {
+    color: #FFFFFF;
+}
+
+.header-info-left button:hover {
+    background-color: #2121216e;
+}
+
+.header-info-left .fa {
+    cursor: pointer;
+    padding: 10px;
+    margin-right: 0.5em;
 }
 
 .navbar {
@@ -124,7 +141,5 @@ nav ul li a:hover, .dropdown:hover button {
     box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
     z-index: 1000;
 }
-
-
 
 .dropdown-content a:hover {background-color: #f1f1f1}

@@ -14,11 +14,16 @@
   
     <mat-form-field class="example-full-width">
       <mat-label>Write your message</mat-label>
-      <textarea matInput placeholder="Ex. It makes me feel..."></textarea>
+      <textarea matInput placeholder="SDA Travel Agency is truly amazing. Never had such a good experience..."></textarea>
     </mat-form-field>
 
 
-    <div class="button-container"><button mat-raised-button>Send</button></div>
+    <div class="button-container">
+      <button mat-raised-button (click)="openSnackBar()">Send</button>
+    </div>
 
   </form>
 </body>
+
+
+

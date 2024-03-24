@@ -62,7 +62,7 @@ main {
   margin: 0;
   padding: 40px;
   padding-top: 80px;
-  color: #000;
+  color: #212529;
   font-family: 'Roboto', sans-serif;
   font-weight: 400;
   font-size: 72px;
@@ -74,16 +74,16 @@ main {
 .promoted-tours .tour-card {
   flex: 0 0 35%; /* Each card takes up roughly half of the carousel slide */
   margin: 1%; /* Adjust margin for spacing */
-  border: 1px solid #ddd;
-  border-radius: 10px;
-  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
 }
 
 .tour-card {
+  background: #fff;
   border: 1px solid #ddd;
   border-radius: 10px;
   box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  overflow: hidden;
 }
+
 
 /* Update the tour group to handle two cards */
 .promoted-tours .tour-group {

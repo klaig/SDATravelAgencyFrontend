@@ -3,7 +3,7 @@
     <div class="top-bar-content">
         <!-- Add content here, like logo, search bar, user info -->
         <div class="header-info-left">
-            <a>+372 555 55555</a>
+            <i class="fa fa-phone" aria-hidden="true"></i>
             <button mat-button *ngIf="isLoggedIn" (click)="logout()">Logout</button>
             <button mat-button *ngIf="!isLoggedIn" routerLink="/login">Login</button>
             <button mat-button *ngIf="isAdmin" routerLink="/admin">Admin Dashboard</button>
