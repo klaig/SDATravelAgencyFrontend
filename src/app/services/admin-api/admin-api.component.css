@@ -21,7 +21,7 @@
     flex: 1;
 }
 
-#jsonOutput {
+#jsonOutputAdmin {
     white-space: pre-wrap; /* Ensures formatting of whitespace is kept */
     word-break: break-all; /* To prevent horizontal scrolling */
     padding: 5px; /* Padding inside the container */

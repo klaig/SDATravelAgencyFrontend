@@ -13,18 +13,17 @@ export class AdminApiComponent implements OnInit{
     childPrice: number = 700; 
     departureDate: string = "2024-05-01"; 
     returnDate: string = "2024-05-15"; 
-    destination: string = "Rome"; 
     availableSeats: number = 12; 
     purchaseDataId: number = 1; 
     userId: number = 1; 
     tourId: number = 1; 
     checked: boolean = true;
-  searchForm!: FormGroup;
+    searchForm!: FormGroup;
   constructor(private apiService: ApiService) {}
 
   ngOnInit() {
     this.searchForm = new FormGroup({
-      destination: new FormControl(''), // Add other controls if needed
+      destination: new FormControl('Rome'), // Add other controls if needed
       // ... other form controls ...
     });
   }
@@ -63,7 +62,7 @@ export class AdminApiComponent implements OnInit{
     // initialize a tour object
     const tour: Tour = {
       id: 0,
-      destination: this.destination.toUpperCase(),
+      destination: this.searchForm.get('destination')?.value.toUpperCase(),
       departureDate: this.departureDate,
       returnDate: this.returnDate,
       length: days,
@@ -94,7 +93,7 @@ export class AdminApiComponent implements OnInit{
     // initialize a tour object
     var tour: Tour = {
       id: 0,
-      destination: this.destination.toUpperCase(),
+      destination: this.searchForm.get('destination')?.value.toUpperCase(),
       departureDate: this.departureDate,
       returnDate: this.returnDate,
       length: days,
@@ -107,7 +106,6 @@ export class AdminApiComponent implements OnInit{
     this.apiService.updateTour(this.tourId, tour).subscribe({
       next: (data) => {
         // Do something with the data
-        this.destination = tour.destination;
         console.log(data);
         this.updateJsonOutput(data);
       },

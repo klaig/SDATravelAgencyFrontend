@@ -38,7 +38,11 @@
         </tr>
         <tr>
             <td>
-                <app-destination-auto-complete></app-destination-auto-complete>
+                <!-- Destination Autocomplete Component -->
+    <app-destination-auto-complete 
+    [formGroup]="searchForm" 
+    controlName="destination">
+  </app-destination-auto-complete>
 
             </td>
             <td>
