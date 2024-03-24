@@ -1,3 +1,6 @@
 .component {
     margin-bottom: 5em;
 }
+body {
+    background-color: white;
+}
