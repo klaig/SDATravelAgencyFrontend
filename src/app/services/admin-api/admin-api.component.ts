@@ -28,6 +28,10 @@ export class AdminApiComponent implements OnInit{
     });
   }
 
+  formatDestination(destination: string): string {
+    return destination.toUpperCase().replace(/\s+/g, '_');
+  }
+
   // Function to handle button clicks and update the JSON output
   updateJsonOutput(data: any): void {
     // Convert data to JSON format with indentation
@@ -58,11 +62,11 @@ export class AdminApiComponent implements OnInit{
     // Calculate length of tour
     var time = new Date(this.returnDate).getTime() - new Date(this.departureDate).getTime();
     var days = time / (1000 * 3600 * 24);
-
+    
     // initialize a tour object
     const tour: Tour = {
       id: 0,
-      destination: this.searchForm.get('destination')?.value.toUpperCase(),
+      destination: this.formatDestination(this.searchForm.get('destination')?.value),
       departureDate: this.departureDate,
       returnDate: this.returnDate,
       length: days,
@@ -93,7 +97,7 @@ export class AdminApiComponent implements OnInit{
     // initialize a tour object
     var tour: Tour = {
       id: 0,
-      destination: this.searchForm.get('destination')?.value.toUpperCase(),
+      destination: this.formatDestination(this.searchForm.get('destination')?.value),
       departureDate: this.departureDate,
       returnDate: this.returnDate,
       length: days,

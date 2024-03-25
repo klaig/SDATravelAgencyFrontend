@@ -6,6 +6,7 @@ import { Tour } from '../../models/tour.model';
 import { TourPurchaseDialogComponent } from '../../shared/tour-purchase-dialog/tour-purchase-dialog.component';
 import { MatDialog } from '@angular/material/dialog';
 import { debounceTime } from 'rxjs/operators';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-tours',
@@ -28,7 +29,7 @@ export class ToursComponent implements OnInit{
 
   selectedSort: string = '';
 
-  constructor(private formBuilder: FormBuilder, private apiService: ApiService, private dialog: MatDialog) {}
+  constructor(private formBuilder: FormBuilder, private apiService: ApiService, private dialog: MatDialog, private route: ActivatedRoute) {}
   
   ngOnInit(): void {
     this.searchForm = this.formBuilder.group({
@@ -38,6 +39,13 @@ export class ToursComponent implements OnInit{
       length: [''],
       promoted: [''],
       sort: ['']
+    });
+
+    this.route.queryParams.subscribe(params => {
+      const destinationControl = this.searchForm.get('destination');
+      if (destinationControl && params['destination']) {
+        destinationControl.setValue(params['destination']);
+      }
     });
 
     // When the search criteria or sort option changes, fetch and sort the tours.
@@ -59,15 +67,18 @@ export class ToursComponent implements OnInit{
   fetchAndSortTours(): void {
     // Get current form values
     const { destination, minDate, maxDate, length, promoted, sort } = this.searchForm.value;
+    let formattedDestination: string | undefined = destination;
 
     let formattedMinDate: string | undefined = minDate ? formatDate(minDate, 'yyyy-MM-dd', 'en-US') : undefined;
     let formattedMaxDate: string | undefined = maxDate ? formatDate(maxDate, 'yyyy-MM-dd', 'en-US') : undefined;
-    // Convert dates if necessary and format
-    // ...
+
+    if (destination) {
+      formattedDestination = this.formatDestination(destination);
+    }
 
     // Fetch the tours
     this.apiService.getAllTours(
-      destination,
+      formattedDestination,
       formattedMinDate,
       formattedMaxDate,
       length,
@@ -76,6 +87,10 @@ export class ToursComponent implements OnInit{
       this.tours = response.content;
       this.sortTours(); // Sort the tours whenever new data is fetched
     });
+  }
+
+  formatDestination(destination: string): string {
+    return destination.toUpperCase().replace(/\s+/g, '_');
   }
 
   sortTours(): void {
