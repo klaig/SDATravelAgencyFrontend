@@ -4,6 +4,7 @@ import { FinalizePurchaseComponent } from '../finalize-purchase/finalize-purchas
 import { PurchaseData } from '../../models/purchasedata.model';
 import { ApiService } from '../../services/api.service';
 
+
 @Component({
   selector: 'app-tour-purchase-dialog',
   templateUrl: './tour-purchase-dialog.component.html',
@@ -33,24 +34,26 @@ export class TourPurchaseDialogComponent {
       isPurchased: false
     };
     if (purchaseData.numberOfAdults + purchaseData.numberOfChildren > 0) {
-    this.apiService.createPurchasedData(purchaseData).subscribe({
-      next: (purchaseDataData) => {
-        console.log(purchaseDataData);
-        // Open the new dialog
-        this.dialog.open(FinalizePurchaseComponent, {
-          width: '400px',
-          data: {
-            purchaseDataId: purchaseDataData.id
-          }
-          // You can pass data as well, similar to how you opened the first dialog
-        });
-      },
-      error: (error) => {
-        console.error(error);
-      }
-    });
-  } else {
-    alert("You must select at least one ticket");
+      this.apiService.createPurchasedData(purchaseData).subscribe({
+        next: (purchaseDataData) => {
+          console.log(purchaseDataData);
+          // Open the new dialog
+          this.dialog.open(FinalizePurchaseComponent, {
+            width: '400px',
+            data: {
+              purchaseDataId: purchaseDataData.id
+            }
+            // You can pass data as well, similar to how you opened the first dialog
+          });
+        },
+        error: (error) => {
+          console.error(error);
+        }
+      });
+    } else {
+      alert("You must select at least one ticket");
+    }
   }
-}
+
+
 }

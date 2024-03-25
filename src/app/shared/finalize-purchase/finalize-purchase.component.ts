@@ -17,6 +17,7 @@ export class FinalizePurchaseComponent {
     this.apiService.finalizePurchase(this.data.purchaseDataId).subscribe({
       next: (dataFromApi) => {
         console.log(dataFromApi);
+        this.snackBar.open("Purchase complete", "", {duration: 2000});
         this.dialogRef.close();
       },
       error: (error) => {
