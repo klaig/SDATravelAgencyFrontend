@@ -25,7 +25,7 @@
                     <div *ngFor="let tour of boughtTours" class="tour-card">
                     <img [src]="'/assets/images/' + tour.destination + '.jpg'" alt="{{tour.destination}}" class="tour-image">
                     <div class="tour-details">
-                        <h3>{{tour.destination}}</h3>
+                        <h3>{{formatTourDestination(tour.destination)}}</h3>
                         <p *ngIf="hasDeparted(tour.departureDate)" class="tour-departed">Departed: {{tour.departureDate | date:'mediumDate'}}</p>
                         <p *ngIf="!hasDeparted(tour.departureDate)" class="tour-departure">Departs: {{tour.departureDate | date:'mediumDate'}}</p>
                         <div class="tour-buttons">

@@ -45,7 +45,7 @@
       <div *ngFor="let tour of filteredTours" class="tour-card">
         <img [src]="'/assets/images/' + tour.destination + '.jpg'" alt="{{tour.destination}}" class="tour-image">
         <div class="tour-details">
-          <h3>{{tour.destination}}</h3>
+          <h3>{{formatTourDestination(tour.destination)}}</h3>
           <p class="tour-price">{{tour.adultPrice | currency}} for adults</p>
           <p class="tour-price">{{tour.childPrice | currency}} for children</p>
           <p class="tour-length">{{tour.length}} days</p>

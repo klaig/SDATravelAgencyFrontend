@@ -36,6 +36,10 @@ export class HomeComponent implements OnInit{
     });
   }
 
+  formatTourDestination(destination: string): string {
+    return destination.replace(/_/g, ' ');
+  }
+
   hasDeparted(departureDate: string): boolean {
     const today = new Date();
     today.setHours(0, 0, 0, 0);

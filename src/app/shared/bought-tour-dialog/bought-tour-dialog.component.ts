@@ -10,4 +10,7 @@ export class BoughtTourDialogComponent {
 
   constructor(@Inject(MAT_DIALOG_DATA) public data: any) {}
 
+  formatTourDestination(destination: string): string {
+    return destination.replace(/_/g, ' ');
+  }
 }

@@ -63,4 +63,8 @@ export class UserProfileComponent implements OnInit{
       this.purchaseData = purchaseData;
     });
   }
+
+  formatTourDestination(destination: string): string {
+    return destination.replace(/_/g, ' ');
+  }
 }

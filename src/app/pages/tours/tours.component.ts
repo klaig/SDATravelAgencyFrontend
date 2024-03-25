@@ -88,9 +88,15 @@ export class ToursComponent implements OnInit{
       this.sortTours(); // Sort the tours whenever new data is fetched
     });
   }
-
+  
+  // Handle the emitted data (destination)
   formatDestination(destination: string): string {
     return destination.toUpperCase().replace(/\s+/g, '_');
+  }
+
+  // remove the underscore and replace it with a space for when we display the destination to the user
+  formatTourDestination(destination: string): string {
+    return destination.replace(/_/g, ' ');
   }
 
   sortTours(): void {

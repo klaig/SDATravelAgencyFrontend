@@ -30,6 +30,10 @@ export class TourPurchaseDialogComponent {
     this.dialogRef.close();
   }
   
+  formatTourDestination(destination: string): string {
+    return destination.replace(/_/g, ' ');
+  }
+
   createPurchaseData() {
     // Close the current dialog
     this.dialogRef.close();

@@ -1,6 +1,6 @@
 <div class="purchase-container">
     <h1>Purchase tour</h1>
-    <h2>{{data.tour.destination}}</h2>
+    <h2>{{formatTourDestination(data.tour.destination)}}</h2>
     <p>From: {{data.tour.departureDate | date:'mediumDate'}} To: {{data.tour.returnDate | date:'mediumDate'}}</p>
     <p>Length: {{data.tour.length}} days</p>
     <p>Price for adults: {{data.tour.adultPrice | currency:'EUR' }}</p>

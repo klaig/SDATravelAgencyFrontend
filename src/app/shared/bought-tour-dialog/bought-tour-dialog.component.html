@@ -1,7 +1,7 @@
 <main><!-- city-dialog.component.html -->
 <div class="content">
 
-<h2>{{data.tour.destination}}</h2>
+<h2>{{formatTourDestination(data.tour.destination)}}</h2>
 <p>From: {{data.tour.departureDate | date:'mediumDate' }} To: {{data.tour.returnDate | date:'mediumDate'}}</p>
 <p>Length: {{data.tour.length}} days</p>
 <p>Price for adults: {{data.tour.adultPrice | currency:'EUR'  }}</p>
