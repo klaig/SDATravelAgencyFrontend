@@ -1,31 +1,34 @@
-# SDATravelAgencyFrontend
+# SDATravelAgencyBackend
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 17.3.0.
+This repository is the backend part of SDA's final project, a dynamic travel agency system designed to streamline the browsing, "purchasing," and management of travel packages.
 
-## Changelog
+## Features
+- **Tour Management**: Admins can manage tour details.
+- **Robust Search**: Users can filter tours by various parameters.
+- **Secure Purchase Process**: Features a secure transaction system for booking tours.
+- **Data Validation**: Ensures data integrity.
 
-[See full changelog](CHANGELOG.md)
+## Security
+- **JWT Authentication**: Implements JWT for secure authentication.
+- **Spring Security**: Used for authorization and access control.
 
-## Development server
+## Technologies
+- Spring
+- Hibernate
+- Angular
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+## Usage
+### Authentication
+- **Sign In**: POST to `/api/auth/signin` with `LoginDto`.
+- **Sign Up**: POST to `/api/auth/signup`.
 
-## Code scaffolding
+### Tour Management (Admin)
+- **Create Tour**: POST to `/api/admin/tour/create`.
+- **Update/Delete Tour**: PUT/DELETE to `/api/admin/tours/{tourId}`.
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+### Tour Browsing and Booking
+- Use GET endpoints under `/api/v1` to search for tours.
+- Book tours via relevant booking endpoints.
 
-## Build
-
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
-
-## Running unit tests
-
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+### Access Control
+- Public endpoints accessible without authentication. Others require a valid JWT token.
