@@ -21,6 +21,15 @@ export class TourPurchaseDialogComponent {
       public dialogRef: MatDialogRef<TourPurchaseDialogComponent>,
       private apiService: ApiService) {}
 
+
+  isLoggedIn(): boolean {
+    return !!localStorage.getItem('ID');
+  }    
+
+  closeDialog() {
+    this.dialogRef.close();
+  }
+  
   createPurchaseData() {
     // Close the current dialog
     this.dialogRef.close();

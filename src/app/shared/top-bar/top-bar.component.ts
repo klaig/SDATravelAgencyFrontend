@@ -32,6 +32,7 @@ export class TopBarComponent{
     localStorage.removeItem('ROLE');
     localStorage.removeItem('NAME');
     localStorage.removeItem('EMAIL');
+    localStorage.removeItem('ID');
     this.isLoggedIn = false;
     this.router.navigate(['/login']);
   }

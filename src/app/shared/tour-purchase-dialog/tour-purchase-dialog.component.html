@@ -9,5 +9,11 @@
     <app-custom-number-input [(value)]="adults" label="Adults" class="custom-input"></app-custom-number-input>
     <app-custom-number-input [(value)]="children" label="Children" class="custom-input"></app-custom-number-input>
     <p class="total-price">Total price: {{ data.tour.adultPrice * adults + data.tour.childPrice * children | currency:'EUR'}}</p>
-    <button mat-raised-button color="primary" type="submit" (click)="createPurchaseData()" class="searchButton">Continue</button>
+    <div *ngIf="isLoggedIn(); else loginMessage">
+        <button mat-raised-button color="primary" type="submit" (click)="createPurchaseData()" class="searchButton">Continue</button>
+    </div>
+    <ng-template #loginMessage>
+        <p>You need to be logged in to purchase a tour</p>
+        <button mat-raised-button color="primary" routerLink="/login" (click)="closeDialog()" class="searchButton">Login</button>
+    </ng-template>
 </div>
